@@ -1,0 +1,14 @@
+.footer {
+  font-family: "Alegreya", serif;
+  background-color: var(--color-mid);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.imageWrapper {
+  max-width: 40%;
+  padding: 1rem;
+}
+.imageWrapper > img {
+  width: 100%;  
+}

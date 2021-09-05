@@ -1,0 +1,37 @@
+.post .grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  padding: 3rem;
+}
+
+.borderDiv {
+  padding: 3rem;
+  border-left: 1px solid var(--color-accent-dark);
+  border-right: 1px solid var(--color-accent-dark);
+}
+.post h1,
+.post h2,
+.post h3 {
+  text-shadow: 0px 1px 1px var(--color-accent-dark);
+  letter-spacing: .3rem;
+  text-align: center;
+  padding: .5rem;
+}
+
+.post img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+.post aside {
+  padding: 3rem;
+}
+.post section {
+  justify-content: space-around;
+}
+.post section div {
+  padding: 3rem;
+}
+.post button {
+  padding: 1rem;
+}

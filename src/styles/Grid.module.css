@@ -1,0 +1,27 @@
+.grid {
+  min-height: 300px;
+  max-width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  margin: auto;
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.grid > div {
+  background: url("../static/home_city.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid button {
+  align-self: flex-end;
+  margin: 1rem;
+  transform: translate(1rem);
+}
