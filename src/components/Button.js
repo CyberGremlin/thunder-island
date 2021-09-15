@@ -4,10 +4,12 @@ import {
 } from "../styles/Button.module.css"
 
 const Button = ( props ) => {
-  const btnText = props.btnText
+
+  const innerText = props.innerText
   const onClickFunc = props.onClickFunc
+  
   return (
-    <button className={ btn } onClick={ onClickFunc }>{ btnText}</button>
+    <button className={ btn } onClick={ onClickFunc }>{ innerText}</button>
   )
 }
 

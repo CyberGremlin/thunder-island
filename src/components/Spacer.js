@@ -1,12 +1,22 @@
 import * as React from "react"
 import {
- spacerSmall 
+  small,
+  medium,
+  large
 } from "../styles/Spacers.module.css"
 
-const SpacerSmall = () => {
+const Spacer = ( { size } ) => {
+
+  let space;
+  
+  if ( size === "small" ) { space = small }
+  if ( size === "medium" ) { space = medium }
+  if ( size === "large" ) { space = large }
+  
   return (
-    <div className={ spacerSmall }></div>
+    <div className={ space }></div>
   )
+
 }
 
-export default SpacerSmall
+export default Spacer

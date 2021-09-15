@@ -25,15 +25,18 @@ body {
 p {
   font-size: 1.7rem;
   color: var(--color-dark);
-  letter-spacing: .03rem;
-  line-height: 2.5rem;
+  letter-spacing: .05rem;
+  line-height: 3.5rem;
  }
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+nav,
+a, 
+button {
   font-family: 'Alegreya', serif;
  }
  h1 {
@@ -52,13 +55,16 @@ h6 {
  h6 {
    font-size: 1.6rem;
  }
- a {
+ address,
+ time {
+   font-size: 1.4rem;
+   font-style: italic;
+ }
+ a,
+ button {
    color: var(--color-dark);
    font-size: 1.8rem;
-   font-family: 'Alegreya', serif;
    text-decoration: none;
- }
- button {
    cursor: pointer;
    border: none;
  }

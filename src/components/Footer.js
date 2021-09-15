@@ -1,13 +1,17 @@
 import * as React from "react"
+import { StaticImage } from "gatsby-plugin-image"
 import {
   footer,
   imageWrapper
 } from "../styles/Footer.module.css"
-import logoImg from "../static/ThunderIslandLogo.png"
+
 
 const Footer = () => {
   return (
     <footer className={ footer }>
+       <div className={ imageWrapper }>
+        <StaticImage src="../images/ThunderIslandLogo.png" alt="thunder island logo" />
+      </div>
       <div>
         <h6>Categories</h6>
       </div>
@@ -16,9 +20,7 @@ const Footer = () => {
         <p>Made with Gatsby and Wordpress - eventually</p>
         <p>Logo Design by Claire Murray</p>
       </div>
-      <div className={ imageWrapper }>
-        <img src={ logoImg } alt="thunder island logo" />
-      </div>
+     
     </footer>
   )
 }

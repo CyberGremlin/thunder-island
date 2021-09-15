@@ -1,39 +1,23 @@
 import * as React from "react"
 import {
-  excerptCards, 
-  excerptCard,
-  imageWrapper,
-  textWrapper,
-  grid
+  excerptList, 
 } from "../styles/Excerpts.module.css"
-import Button from "./Button"
 
-import image from "../static/profile.jpg"
-import { excerpts } from "../static/excerpts"
+import PostingMedium from "./PostingMedium"
 
-const Excerpts = (  ) => {
+const Excerpts = ( { posts, ...props } ) => {
 
-  const generatedExcerpts = excerpts.map( (item, index)=> {
+  const innerText = props.innerText
+
+  const generatedExcerpts = posts.map( (item, index)=> {
     return (
-        <article className={ excerptCard } key={ index }>
-        <h3>{ item.title }</h3>
-        <h4>The Categories</h4>
-          <div className={ grid }>
-            <div className={ imageWrapper }>
-              <img src={ image } alt={ item.alt } />
-            </div>
-            <div className={textWrapper}>
-              <p>{ item.excerpt }</p>
-              <Button btnText="Read More" />
-            </div>
-          </div>
-        </article>
+      <PostingMedium post={ item } key={ index } innerText={ innerText }/>
     )
     })
   
   return (
-     <div className={ excerptCards }>
-    {generatedExcerpts}
+    <div className={ excerptList }>
+      {generatedExcerpts}
     </div>
   )
 }

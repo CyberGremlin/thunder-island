@@ -4,7 +4,8 @@ import {
   navbar,
   isActive
 } from "../styles/Navbar.module.css"
-import { pages } from "../static/pages"
+
+import { pages } from "../data/pages"
 
 const Navbar = () => {
 

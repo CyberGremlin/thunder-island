@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import image from "../../static/profile.jpg"
+import image from "../images/bacon-and-eggs-small.png"
 
 const Recipe = () => {
   return (

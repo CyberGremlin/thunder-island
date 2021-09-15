@@ -1,4 +1,9 @@
-.spacerSmall {
-  border-bottom: 1px solid transparent;
+.small {
   margin-top: 3rem;
+}
+.medium {
+  margin-top: 6rem;
+}
+.large {
+  margin-top: 9rem;
 }

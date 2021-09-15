@@ -10,7 +10,7 @@
   }
 }
 .grid > div {
-  background: url("../static/home_city.jpg");
+  background: url("../images/learn-english-wide.png");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
@@ -20,8 +20,7 @@
   justify-content: center;
 }
 
-.grid button {
+.grid a {
   align-self: flex-end;
   margin: 1rem;
-  transform: translate(1rem);
 }

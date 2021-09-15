@@ -4,6 +4,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 .imageWrapper {
   max-width: 40%;
