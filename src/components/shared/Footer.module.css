@@ -1,0 +1,12 @@
+.footer {
+  font-family: "Alegreya", serif;
+  background-color: var(--color-mid);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer div p {
+  font-size: 1.4rem;
+}

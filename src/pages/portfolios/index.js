@@ -1,32 +1,37 @@
 import * as React from "react"
 
-import Navbar from "../../components/Navbar"
-import Header from "../../components/Header" 
-import Spacer from "../../components/Spacer"
-import NavbarAnchors from "../../components/NavbarAnchors"
-import Grid from "../../components/Grid"
-import Footer from "../../components/Footer"
+import Layout from "../../components/layout/Layout"
+import SingleColumn from "../../components/layout/SingleColumn"
 
-import { inMalta } from "../../data/boxInfo"
+import Spacer from "../../components/layout/Spacer"
+import ButtonBar from "../../components/clickable/button-bar/ButtonBar"
+import ButtonGrid from "../../components/clickable/button-grid/ButtonGrid"
 
-const Portfolios = () => {
+const PortfoliosPage = () => {
 
-  const pageAnchors = [ "Writing", "Web Development", "Expats in Malta" ]
+    const title = "My Portfolios"
+    const portfolios = [ "Writing", "Web Development", "Expats in Malta" ]
+    const writingPortfolio = ["Stories and Poems", "Reviews", "Information"]
+    const expatPortfolio = [ "Photographs", "Family Life" ]
+    const webDevPortfolio = ["Mint Gallery"]
 
-  return (
-    <>
-      <Navbar />
-      <Header />
-      <Spacer size="large" />
-      <NavbarAnchors anchors={ pageAnchors } />
-      <Spacer size="large" />
-      <main>
-         <Grid boxInfo={ inMalta }/>
-      </main>
-      <Spacer size="large" />
-      <Footer />
-      </>
-  )
-}
-       
-export default Portfolios
+    return (
+      <Layout title={ title }>
+        <ButtonBar buttons={ portfolios } />
+        <ButtonBar buttons={ writingPortfolio } />
+        <ButtonBar buttons={ expatPortfolio } />
+        <ButtonBar buttons={ webDevPortfolio } />
+        <SingleColumn>
+          <ButtonGrid boxInfo={ portfolios } />
+          <Spacer size="small" />
+          <ButtonGrid boxInfo={ writingPortfolio } />
+          <Spacer size="small" />
+          <ButtonGrid boxInfo={ expatPortfolio } />
+          <Spacer size="small" />
+          <ButtonGrid boxInfo={ webDevPortfolio } />
+        </SingleColumn>
+      </Layout> 
+    )
+  }
+    
+export default PortfoliosPage

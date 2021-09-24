@@ -1,0 +1,23 @@
+.postSmall {
+  background-color: var(--color-light);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.postSmall h4 {
+  text-shadow: 0px 1px 1px var(--color-accent-dark);
+  letter-spacing: .3rem;
+  padding: 1rem;
+}
+.postSmall .imageWrapper {
+  padding: 1rem;
+}
+.postSmall .imageWrapper img {
+  width: 100%;
+  border-radius: 5px;
+}
+.postSmall a {
+  align-self: flex-end;
+  margin: 1rem;
+}

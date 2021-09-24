@@ -1,0 +1,28 @@
+.btnGrid {
+  width: 80%;
+  display: grid;
+  gap: .5rem;
+  margin: auto;
+}
+.duo {
+  grid-template-columns: repeat(2, 1fr);
+}
+.tri {
+  grid-template-columns: repeat(3, 1fr);
+}
+.btnGrid > div {
+  background: url("../../../images/learn-english-landscape.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 150px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonGrid a {
+  text-align: center;
+  align-self: flex-end;
+  margin: 1rem;
+}

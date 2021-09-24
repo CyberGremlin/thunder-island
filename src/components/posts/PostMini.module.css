@@ -1,0 +1,15 @@
+.postMini {
+  border-left: 1px solid var(--color-accent-dark);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.postMini h4 {
+  text-shadow: 0px 1px 1px var(--color-accent-dark);
+  letter-spacing: .3rem;
+  padding: 1rem;
+}
+.postMini a {
+  align-self: flex-end;
+  margin: 1rem;
+}

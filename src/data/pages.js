@@ -14,8 +14,8 @@ export const pages = [
       name: "Food and Health"
     },
     {
-      link: "/learn-english-with-me",
-      name: "Learn English with me"
+      link: "/learn-english",
+      name: "Learn English"
     },
     {
       link: "/portfolios",

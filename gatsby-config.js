@@ -5,6 +5,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-apollo',
+      options: {
+        uri: "http://thunder-island.local/graphql"
+      }
+    },
+    {
       resolve: `gatsby-source-wordpress`,
       options: {
         url:
@@ -37,21 +43,20 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-transformer-remark",
-    "gatsby-plugin-mdx",
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "./src/images/",
+        path: `${__dirname}/src/images/`,
       },
       __key: "images",
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: 'markdown-posts',
+        name: "markdown-posts",
         path: `${__dirname}/src/markdown-posts`,
       }
-    },
+    }
   ],
 };

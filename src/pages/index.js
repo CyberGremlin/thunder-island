@@ -1,60 +1,64 @@
 import * as React from "react"
+
 import { graphql } from "gatsby"
 
 import "../styles/globalStyles.css"
 
-import Navbar from "../components/Navbar"
-import Header from "../components/Header"
-import Spacer from "../components/Spacer"
-import Section from "../components/Section"
-import Grid from "../components/Grid"
-import Excerpts from "../components/Excerpts"
-import Footer from "../components/Footer"
+import Layout from "../components/layout/Layout"
+import SingleColumn from "../components/layout/SingleColumn"
+import Spacer from "../components/layout/Spacer"
+import Section from "../components/layout/Section"
+import ButtonGrid from "../components/clickable/button-grid/ButtonGrid"
+import ExcerptList from "../components/posts/ExcerptList"
 
-//replace with data from backend
-import { skills } from "../data/boxInfo"
+//replace with data from mdx
+import { promoted } from "../data/promoted"
 
-//hook for gatsby cloud https://webhook.gatsbyjs.com/hooks/data_source/29fa14d0-6c60-4c62-a893-d5d853f4b9cc?
+const IndexPage = ( { data } ) => {
+  
+  const boxInfoData = promoted
+  const postsData = data.allWpPost.nodes
 
-const IndexPage = ( { data }) => {
   return (
-    <>
-      <Navbar />
-      <Header />
-      <Spacer size="large" />
-      <main>
-        <Section>
-          <Grid boxInfo={ skills }/>
+      <Layout>
+      <SingleColumn>
+         <Section>
+          <ButtonGrid boxInfo={ boxInfoData  }/>
         </Section>
         <Spacer size="large" />
         <Section direction="row">
-          <Excerpts posts={ data.allWpPost.nodes } innerText="Read More" />
+          <ExcerptList posts={ postsData } innerText="Read More" showSubCategories />
         </Section>
-        <Spacer size="large" />
-      </main>
-      <Spacer size="large" />
-      <Footer />
-    </>
+      </SingleColumn>
+      </Layout>
   )
 }
 
-export const get6Posts = graphql`
-query {
-  allWpPost(limit: 6) {
+ export const data = graphql`
+query getHomePagePosts {
+  allWpPost(limit: 6, sort: {fields: date, order: DESC}) {
     nodes {
-      author {
-        node {
-          name
-        }
-      }
-      id
-      slug
-      date
       title
-      excerpt
       categories {
         nodes {
           name
+        }
+      }
+      slug
+      excerpt
+      featuredImage {
+        node {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          author {
+            node {
+              name
+            }
+          }
         }
       }
     }

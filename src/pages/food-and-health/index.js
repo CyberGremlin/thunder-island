@@ -1,63 +1,70 @@
 import * as React from "react"
 
-import Navbar from "../../components/Navbar"
-import ButtonBar from "../../components/ButtonBar"
-import Header from "../../components/Header" 
-import Spacer from "../../components/Spacer"
-import Section from "../../components/Section"
-import Grid from "../../components/Grid"
-import Footer from "../../components/Footer"
+import Layout from "../../components/layout/Layout"
+import SingleColumn from "../../components/layout/SingleColumn"
 
-class FoodAndHealth extends React.Component {
-  constructor ( props ) { 
-    super( props )
-    this.state = {
-        categoryChoice: "",
-        dietChoice: "",
-        ingredientChoice: "",
-        courseChoice: ""
-    }
-  }
-  render () {
-    
-  const categoryChoices = [ "By Diet", "By Ingredient", "By Course" ]
-  const dietChoices = [  "Paleo", "Keto", "Atkins'", "Paleo-ish", "Whole30", "Low Calorie", "All Recipes"]
-  const ingredientChoices = [ "Beef", "Chicken", "Lamb", "Pork", "Seafood", "Vegetable", "Dairy, Fungi and Nuts" ]
-  const courseChoices = [ "Breakfast and Lunch", "Main", "Side", "Snacks and Soups", "Desserts" ]
+import ButtonBar from "../../components/clickable/button-bar/ButtonBar"
+import Spacer from "../../components/layout/Spacer"
+import Section from "../../components/layout/Section"
+import ButtonGrid from "../../components/clickable/button-grid/ButtonGrid"
+
+
+const FoodAndHealthPage = () => {
+  
+  const title = "Food and Health"
+  const categoryChoices = ["Recipes", "Information"]
+  const recipeChoices = [ "By Diet", "By Ingredient", "By Course" ]
+  const dietChoices = [  "Paleo", "Paleo-ish", "Low Net Carbs", "Low Total Carbs", "Low Calorie", "Carnivore", "All Recipes"]
+  const ingredientChoices = [ "Beef and Lamb", "Chicken and Pork", "Fish and Seafood", "Vegetables", "Dairy, Egg, Nuts and Fruit", "Desserts" ]
+  const courseChoices = [ "Breakfast and Lunch", "Main", "Side", "Snacks and Appetisers", "Desserts" ]
   
   return (
-    <>
-      <Navbar />
-      <Header />
-      <Spacer size="large" />
-      <ButtonBar buttons={ categoryChoices } />
-      <Spacer size="large" />
-      <main>
-         <Section>
-          <h2>By Diet</h2>
-          <Grid boxInfo={ categoryChoices } />
+    <Layout title = { title }>
+      <ButtonBar
+        buttons={ categoryChoices }
+      />
+      <ButtonBar
+        buttons={ recipeChoices }
+      />
+        <ButtonBar
+        buttons={ dietChoices }
+      />
+        <ButtonBar
+        buttons={ ingredientChoices }
+      />
+        <ButtonBar
+        buttons={ courseChoices }
+      />
+      <SingleColumn>
+        <Section>
+          <Spacer size="small"/>
+          <ButtonGrid boxInfo={ categoryChoices } />
+          <Spacer size="small"/>
         </Section>
         <Section>
-          <h2>By Diet</h2>
-          <Grid boxInfo={ dietChoices } />
+          <Spacer size="small"/>
+          <h3>By Diet</h3>
+          <Spacer size="small"/>
+          <ButtonGrid boxInfo={ dietChoices } />
+          <Spacer size="small"/>
         </Section>
-        <Spacer size="small" />
         <Section>
-          <h2>By Main Ingredient</h2>
-          <Grid boxInfo={ ingredientChoices } />
+          <Spacer size="small"/>
+          <h3>By Main Ingredient</h3>
+          <Spacer size="small"/>
+          <ButtonGrid boxInfo={ ingredientChoices } />
+          <Spacer size="small"/>
         </Section>
-        <Spacer size="small" />
         <Section>
-          <h2>By Course</h2>
-          <Grid boxInfo={ courseChoices } />
+          <Spacer size="small"/>
+          <h3>By Course</h3>
+          <Spacer size="small"/>
+          <ButtonGrid boxInfo={ courseChoices } />
+          <Spacer size="small"/>
         </Section>
-      </main>
-      <Spacer size="small" />
-      <Footer />
-      </>
+      </SingleColumn>
+    </Layout>     
   )
   }
-  
-}
 
-export default FoodAndHealth
+export default FoodAndHealthPage

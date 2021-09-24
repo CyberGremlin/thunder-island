@@ -1,0 +1,15 @@
+.question {
+  text-align: center;
+}
+.oneCol {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: auto;
+}
+.oneCol h3 {
+  text-shadow: 0px 1px 1px var(--color-accent-dark);
+  letter-spacing: .3rem;
+  padding-left: 5%;
+}
