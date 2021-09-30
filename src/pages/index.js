@@ -11,14 +11,14 @@ import Section from "../components/layout/Section"
 import ButtonGrid from "../components/clickable/button-grid/ButtonGrid"
 import ExcerptList from "../components/posts/ExcerptList"
 
-//replace with data from mdx
+//replace with data from md
 import { promoted } from "../data/promoted"
 
 const IndexPage = ( { data } ) => {
-  
-  const boxInfoData = promoted
-  const postsData = data.allWpPost.nodes
 
+  const boxInfoData = promoted
+  const postsData = data.allMarkdownRemark.nodes
+  
   return (
       <Layout>
       <SingleColumn>
@@ -34,32 +34,25 @@ const IndexPage = ( { data } ) => {
   )
 }
 
- export const data = graphql`
-query getHomePagePosts {
-  allWpPost(limit: 6, sort: {fields: date, order: DESC}) {
+export const data = graphql`
+query getFrontPagePosts {
+  allMarkdownRemark(limit: 6, filter: {frontmatter: {type: {nin: "profile"}}}) {
     nodes {
-      title
-      categories {
-        nodes {
-          name
-        }
-      }
-      slug
-      excerpt
-      featuredImage {
-        node {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          author {
-            node {
-              name
-            }
+      frontmatter {
+        title
+        type
+        slug
+        mainCategories
+        subCategories
+        date
+        author
+        portraitImage {
+          childImageSharp {
+            gatsbyImageData
           }
         }
+        alt
+        excerpt
       }
     }
   }

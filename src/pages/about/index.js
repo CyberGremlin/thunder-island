@@ -5,38 +5,10 @@ import Layout from "../../components/layout/Layout"
 import DoubleColumn from "../../components/layout/DoubleColumn"
  
 
-const AboutPage = () => {
-
-  const data = useStaticQuery( graphql`
-query getAuthorAndPosts {
-  allMarkdownRemark(filter: {id: {eq: "04d8e9be-40b1-533f-83bb-ed723c4115bb"}}) {
-    nodes {
-      frontmatter {
-        title
-        mainCategory
-        author
-        authorId
-        slug
-        date
-        src
-        alt
-        excerpt
-        photographer
-      }
-      html
-    }
-  }
-  allWpPost(filter: {author: {node: {id: {eq: "dXNlcjox"}}}}) {
-    nodes {
-      slug
-      title
-      excerpt
-    }
-  }
-}
-  `)
+const AboutPage = ( { data } ) => {
+  
   const { allMarkdownRemark } = data
-  console.log(data)
+ 
   const { frontmatter, html } = allMarkdownRemark.nodes[ 0 ]
   
   const title = "About"
@@ -45,8 +17,8 @@ query getAuthorAndPosts {
     frontmatter,
     html
   }
-  const asideData = data.allWpPost.nodes
-  const lowerData = data.allWpPost.nodes
+  const asideData = data.allMarkdownRemark.nodes
+  const lowerData = data.allMarkdownRemark.nodes
 
   return (
     <Layout title={title}>
@@ -54,5 +26,25 @@ query getAuthorAndPosts {
     </Layout>
   )
 }
+
+export const data = graphql`
+query getAuthors {
+  allMarkdownRemark(filter: {frontmatter: {type: {eq: "profile"}}}) {
+    nodes {
+      frontmatter {
+        title
+        slug
+        mainCategories
+        portraitImage {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+      html
+    }
+  }
+}
+`
 
 export default AboutPage

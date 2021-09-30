@@ -9,7 +9,7 @@ const LinkBtn = ( props ) => {
   const innerText = props.innerText
   
   return (
-    <Link className={ btn } >{ innerText}</Link>
+    <Link to={ "/" } className={ btn } >{ innerText}</Link>
   )
 }
 

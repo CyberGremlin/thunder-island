@@ -11,38 +11,37 @@ import {
 import LinkBtn from "../clickable/buttons-links/LinkBtn"
 
 const PostMedium = ( { post, ...props } ) => {
-  
-  const innerText = props.innerText ? props.innerText : "See More"
-  
-  const { title, date, slug, author, excerpt } = post
 
-  const mainCategory = post.categories.nodes.map( ( category, index ) => {
+  const innerText = props.innerText ? props.innerText : "See More"
+  const { frontmatter } = post
+  const { title, slug, mainCategories, subCategories, date, author, portraitImage, alt, photographer, excerpt } = frontmatter
+
+  const mainCats = mainCategories.map( ( category, index ) => {
     return (
       <h4 key={ index } >{ category.name }</h4>
   )
-  } ).filter( catName => catName === "Food and Health" || catName === "Learn English" || catName === "Portfolios" )
+  } )
   
-  const subCategories = post.categories.nodes.map( ( category, index ) => {
+  const subCats = subCategories.map( ( category, index ) => {
     return (
       <h4 index={ index }>{ category.name }</h4>
     )
-  } ).filter( catName => catName !== "Food and Health" || catName !== "Learn English" || catName !== "Portfolios" )
-
-  const { featuredImage } = post
+  } )
   
-  const generatedImage = featuredImage ? 
+  const generatedImage = portraitImage ? 
           <div className={ imageWrapper }>
-            <GatsbyImage image={ getImage(post.featuredImage.node.localFile) } alt={ featuredImage.node.altText } />
-            { props.hasPhotographer && featuredImage.node.author.node.name ? <cite>photo by { featuredImage.node.author.node.name }</cite> : null }
+            <GatsbyImage image={ getImage(portraitImage) } alt={ alt } />
+            { props.hasPhotographer && photographer !== "" ? <cite>photo by { photographer }</cite> : null }
           </div>
-   : null
+    : null
+  
     return (
     <article className={ postMedium }>
-      <div>
-        <h3>{ title }</h3>
-        <h4>{ mainCategory }</h4> 
-        { props.showSubCategories && subCategories }
+        <div>
         { props.showDate && <time datetime={ date }> { date } </time> }
+        <h3>{ title }</h3>
+        { mainCats } 
+        { props.showSubCategories && subCats }
         { props.showAuthor && <address rel="author">{ author }</address> }
         </div>
         <div className={ row }>

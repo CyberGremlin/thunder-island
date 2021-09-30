@@ -10,7 +10,7 @@ import ButtonGrid from "../../components/clickable/button-grid/ButtonGrid"
 import ExcerptList from "../../components/posts/ExcerptList"
 
 
-const LearnEnglishPage = () => {
+const LearnEnglishPage = ( { data }) => {
 
     const title = "Learn English"
     const startPoints = [ "CEFR Level", "Language Chunk" ]
@@ -51,12 +51,37 @@ const LearnEnglishPage = () => {
           { CEFRSection }
           {languageChunkSection}
           <Section direction="row">
-            {/* <ExcerptList posts={ get6Posts.allWpPost.nodes } innerText="See Post" /> */}
+          { <ExcerptList posts={ data.allMarkdownRemark.nodes } innerText="See Post" /> }
           </Section>
         </SingleColumn>
       </Layout>
       
     )
+}
+  
+export const data = graphql`
+query get6Posts {
+  allMarkdownRemark(limit: 6) {
+    nodes {
+      frontmatter {
+        title
+        type
+        slug
+        mainCategories
+        subCategories
+        date
+        author
+        portraitImage {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+        alt
+        excerpt
+      }
+    }
   }
+}
+`
   
 export default LearnEnglishPage

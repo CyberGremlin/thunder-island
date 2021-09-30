@@ -9,6 +9,9 @@
   letter-spacing: .3rem;
   padding: 1rem;
 }
+.postMini .imageWrapper {
+  padding: 1rem;
+}
 .postMini a {
   align-self: flex-end;
   margin: 1rem;

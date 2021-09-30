@@ -9,7 +9,7 @@ const Header = () => {
   
   return (
     <header className={ header }>
-      <StaticImage src="../../images/ThunderIslandLogo.png" alt="thunder island logo" />
+      <StaticImage src="./ThunderIslandLogo.png" alt="thunder island logo" />
     </header>
   )
 }

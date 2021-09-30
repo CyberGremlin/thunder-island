@@ -9,12 +9,12 @@ const BlogPage = ( { data } ) => {
 
   const title = "Blog"
   const assignData = "posts"
-  const mainData = data.allWpPost.nodes
-  const asideData = data.allWpPost.nodes
-  const lowerData = data.allWpPost.nodes
+  const mainData = data.allMarkdownRemark.nodes
+  const asideData = data.allMarkdownRemark.nodes
+  const lowerData = data.allMarkdownRemark.nodes
 
   return (
-    <Layout title={title}>
+    <Layout title={ title }>
       <DoubleColumn
         assignedData={ assignData }
         mainData={ mainData }
@@ -26,36 +26,33 @@ const BlogPage = ( { data } ) => {
 }
 
 export const data = graphql`
-query getBlogPagePosts {
-  allWpPost(sort: {fields: date, order: DESC}, limit: 8) {
+query getBlogPosts {
+  allMarkdownRemark(limit: 6, filter: {frontmatter: {type: {nin: "profile"}}}) {
     nodes {
-      title
-      categories {
-        nodes {
-          name
-        }
-      }
-      slug
-      excerpt
-      featuredImage {
-        node {
-          altText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          author {
-            node {
-              name
-            }
+      frontmatter {
+        title
+        type
+        slug
+        mainCategories
+        subCategories
+        date
+        author
+        portraitImage {
+          childImageSharp {
+            gatsbyImageData
           }
         }
+        landscapeImage {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+        alt
+        excerpt
       }
     }
   }
 }
 `
-
 
 export default BlogPage

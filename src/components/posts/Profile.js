@@ -3,22 +3,22 @@ import {
   profile 
 } from "./Profile.module.css"
 
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Profile = ( { person } ) => {
 
-  const name = person.frontmatter.author
-  const content = person.html
-  const alt = person.frontmatter.alt
-  const src = person.frontmatter.src
-console.log(src)
+  console.log(person)
+
+  const { frontmatter, html } = person
+  const { title, portraitImage, alt } = frontmatter
+  
   return (
     <article className={ profile }>
-      <h3>About { name }</h3>
+      <h3>{ title }</h3>
       <div>
-        <StaticImage src="../../images/alex-portrait.jpg" alt={ alt } />
+        <GatsbyImage image={ getImage(portraitImage) } alt={ alt } />
       </div>
-      <p>{ content }</p>
+      <p>{ html }</p>
     </article>
   )
 }
