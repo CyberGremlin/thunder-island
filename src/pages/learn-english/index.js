@@ -13,7 +13,7 @@ import ExcerptList from "../../components/posts/ExcerptList"
 const LearnEnglishPage = ( { data }) => {
 
     const title = "Learn English"
-    const startPoints = [ "CEFR Level", "Language Chunk" ]
+    const startPoints = [ "CEFR Level", "Lingua Node" ]
     const CEFRLevels = [ "A1", "A2", "B1", "B2", "C1", "C2" ]
 
     const CEFRSection =
@@ -24,10 +24,10 @@ const LearnEnglishPage = ( { data }) => {
         <ButtonGrid boxInfo={ CEFRLevels } />
       </Section >
     
-    const languageChunkSection =
+    const linguaNodeSection =
       <Section>
         <Spacer size="small"/>
-        <h3>By Language Chunk</h3>
+        <h3>By Lingua Node</h3>
         <Spacer size="small"/>
         <ul>
           <li>Adjectives</li>
@@ -49,7 +49,7 @@ const LearnEnglishPage = ( { data }) => {
           />
         <SingleColumn>
           { CEFRSection }
-          {languageChunkSection}
+          {linguaNodeSection}
           <Section direction="row">
           { <ExcerptList posts={ data.allMarkdownRemark.nodes } innerText="See Post" /> }
           </Section>

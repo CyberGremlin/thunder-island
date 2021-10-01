@@ -5,35 +5,6 @@ backend:
 media_folder: static/images
 public_folder: /images
 collections:
-  - name: 'recipes'
-    label: 'Recipes'
-    folder: 'content/food-and-health'
-    create: true
-    slug: 'index'
-    media_folder: ''
-    public_folder: ''
-    path: '{{title}}/index'
-    editor:
-      preview: true
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Type", name: "type", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string" }
-      - { label: "Main Categories", name: "mainCategories", widget: "list" }
-      - { label: "Subcategories", name: "subCategories", widget: "list" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: 'Date', name: 'date', widget: "datetime" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Portrait Image", name: "portraitImage", widget: "image" }
-      - { label: "Landscape Image", name: "landscapeImage", widget: "image" }
-      - { label: "Banner Image", name: "bannerImage", widget: "image" }
-      - { label: "Pin", name: "pin", widget: "image" }
-      - { label: "Alt", name: "alt", widget: "string" }
-      - { label: "Photographer", name: "photographer", widget: "string"}
-      - { label: "Comments", name: "true", widget: "boolean" }
-      - { label: "Excerpt", name: "excerpt", widget: "text" }
-      - { label: "Blurb", name: "blurb", widget: "boolean" }
-      - { label: "Body", name: "body", widget: "markdown" }
   - name: 'profile'
     label: 'Profiles'
     folder: 'content/about'
@@ -46,11 +17,180 @@ collections:
       preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Type", name: "type", widget: "string" }
+      - { 
+          label: "Type",
+          name: "type",
+          widget: "select", 
+          options: [ "profile", "post" ]
+             }
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Author", name: "author", widget: "string" }
-      - { label: "Portrait Image", name: "portraitImage", widget: "image" }
+      - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false }
       - { label: "Alt", name: "alt", widget: "string" }
-      - { label: "Photographer", name: "photographer", widget: "string"}
-      - { label: "Body", name: "body", widget: "markdown" }    
+      - { label: "Photographer", name: "photographer", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" } 
+
+  - name: 'food-and-health'
+    label: 'Food and Health'
+    folder: 'content/food-and-health'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { 
+          label: "Type", 
+          name: "type", 
+          widget: "select", 
+          multiple: true,
+          options: [ "post", "short", "recipe" ]
+           }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { 
+          label: "Main Categories", 
+          name: "mainCategories",
+          widget: "select",
+          options:
+           [ { label: "Food and Health", value: "food-and-health" } ]
+          }
+      - { 
+          label: "Subcategories", 
+          name: "subCategories", 
+          widget: "select", 
+          options:
+           [ 
+             { label: "Health", value: "health" },
+             { label: "Recipes", value: "recipes" } 
+             ]
+      }
+      - { 
+          label: "Tags", 
+          name: "tags", 
+          widget: "select", 
+          multiple: true, 
+          required: false, 
+          options: 
+            [
+              { label: "Exercise", value: "exercise" },
+              { label: "Diets", value: "diets" },
+              { label: "Living", value: "living" },
+              { label: "Breakfast and Lunch", value: "breakfast-and-lunch" },
+              { label: "Main Dish", value: "main" },
+              { label: "Side Dish", value: "side" },
+              { label: "Salads and Soups", value: "salads-and-soups" },
+              { label: "Snacks and Appetisers", value: "snacks-and-appetisers" },
+              { label: "Beef and Lamb", value: "beef-and-lamb" },
+              { label: "Chicken and Pork", value: "chicken-and-pork" },
+              { label: "Dairy, Eggs, Nuts and Fruit", value: "dairy-eggs-nuts-and-fruit" },
+              { label: "Fish and Seafood", value: "fish-and-seafood" },
+              { label: "Vegetables", value: "vegetables" },
+              { label: "Low Net Carbs", value: "low-net-carbs" },
+              { label: "Low Total Carbs", value: "low-total-carbs" },
+              { label: "Low Calorie", value: "low-calorie" },
+              { label: "Paleo", value: "paleo" },
+              { label: "Paleo-ish", value: "paleo-ish" },
+              { label: "Carnivore", value: "carnivore" },
+              { label: "All Recipes", value: "all" }
+            ]
+      }
+      - { label: 'Date', name: 'date', widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false}
+      - { label: "Landscape Image", name: "landscapeImage", widget: "image", required: false}
+      - { label: "Banner Image", name: "bannerImage", widget: "image", required: false }
+      - { label: "Pin", name: "pin", widget: "image", required: false }
+      - { label: "Alt", name: "alt", widget: "string", required: false }
+      - { label: "Photographer", name: "photographer", widget: "string", required: false}
+      - { label: "Comments", name: "true", widget: "boolean" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: 'learn-english'
+    label: 'Learn English'
+    folder: 'content/learn-english'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { 
+        label: "Type", 
+        name: "type", 
+        widget: "select", 
+        multiple: true, 
+        options: 
+          ["post", "short", "lesson", "practice"]
+          }
+      - { 
+        label: "Related Lessons or Exercises", 
+        name: "related", 
+        widget: "related", 
+        collection: "practice", 
+        required: false
+        }
+      - { label: "Slug", name: "slug", widget: "string" } 
+      - { 
+        label: "Main Categories", 
+        name: "mainCategories", 
+        widget: "select", 
+        options:
+          [ { label: "Learn English", value: "learn-english" } ]
+          }
+      - { 
+        label: "Subcategories", 
+        name: "subCategories", 
+        widget: "select", 
+        multiple: true, 
+        options: 
+        [
+          { label: "Lingua Node", value: "lingua-node" }, 
+          { label: "Lingua Nodule", value: "lingua-nodule" }, 
+          { label: "Lingua Practice", value: "lingua-practice" }  
+        ]
+          }
+      - { 
+        label: "CEFR Level", 
+        name: "cefr", 
+        widget: "select", 
+        multiple: true, 
+        options:
+          ["A1", "A2", "B1", "B2", "C1", "C2"]
+           }
+      - { 
+        label: "Lingua Cluster", 
+        name: "cluster", 
+        widget: "select", 
+        multiple: true, 
+        options:
+        [
+          {label: "Adjectives", value: "adjectives" },
+          {label: "Adverbs", value: "adverbs" },
+          {label: "Past Tense", value: "past-tense" },
+          {label: "Present Tense", value: "present-tense" },
+          {label: "Future Tense", value: "future-tense" },
+          {label: "Questions", value: "questions" }
+        ]
+           }
+      - { label: "Author", name: "author", widget: "string", required: false}
+      - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false }
+      - { label: "Landscape Image", name: "landscapeImage", widget: "image", required: false }
+      - { label: "Banner Image", name: "bannerImage", widget: "image", required: false }
+      - { label: "Pin", name: "pin", widget: "image", required: false }
+      - { label: "Alt", name: "alt", widget: "string", required: false }
+      - { label: "Photographer", name: "photographer", widget: "string", required: false }
+      - { label: "Diagram", name: "diagram", widget: "image", required: false}
+      - { label: "Animation", name: "animation", widget: "image", required: false}
+      - { label: "Animator", name: "animator", widget: "string", required: false}
+      - { label: "Body", name: "body", widget: "markdown" }  
+        
+ 
+    
   

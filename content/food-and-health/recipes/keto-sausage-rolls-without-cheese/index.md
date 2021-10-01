@@ -15,7 +15,7 @@ author: Alex
 portraitImage: ./keto-sausage-rolls-without-cheese-portrait.png
 landscapeImage: ./keto-sausage-rolls-without-cheese-landscape.png
 bannerImage: ./keto-sausage-rolls-without-cheese-banner.png
-pin: 
+pin: ./keto-sausage-rolls-without-cheese-pin.png
 alt: cooked keto sausage rolls
 photographer: Alex
 comments: true

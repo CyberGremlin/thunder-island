@@ -2,6 +2,7 @@
 title: Bacon And Eggs
 type: post
 slug: bacon-and-eggs
+author: Alex
 mainCategories: 
   - Food and Health
 subCategories: 
@@ -14,7 +15,6 @@ tags:
   - Low Total Carbs
   - Paleo-ish
 date: 08/09/21
-author: Alex
 portraitImage: ./bacon-and-eggs-portrait.png
 landscapeImage: ./bacon-and-eggs-landscape.png
 bannerImage: ./bacon-and-eggs-banner.png
@@ -22,8 +22,7 @@ pin:
 alt: bacon and eggs
 photographer: Alex
 comments: true
-excerpt: Eggs and bacon! Why is there a recipe for eggs and bacon? Because, sometimes, it's easy to overlook the little things.  A simple yet filling eggs and bacon recipe for one.
-blurb: false
+excerpt: Eggs and bacon! Why is there a recipe for eggs and bacon? Because, sometimes, it's easy to overlook the little things. A simple yet filling eggs and bacon recipe for one.
 ---
 
 ## Recipe
