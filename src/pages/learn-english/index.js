@@ -1,20 +1,22 @@
-import * as React from "react"
+import React, { useContext } from "react"
+
+import {  graphql } from "gatsby"
 
 import Layout from "../../components/layout/Layout"
 import SingleColumn from "../../components/layout/SingleColumn"
 
 import Spacer from "../../components/layout/Spacer"
-import ButtonBar from "../../components/clickable/button-bar/ButtonBar"
+import Breadcrumbs from "../../components/clickable/breadcrumbs/Breadcrumbs"
 import Section from "../../components/layout/Section"
 import ButtonGrid from "../../components/clickable/button-grid/ButtonGrid"
 import ExcerptList from "../../components/posts/ExcerptList"
 
-
-const LearnEnglishPage = ( { data }) => {
+const LearnEnglishPage = ( { data } ) => {
 
     const title = "Learn English"
-    const startPoints = [ "CEFR Level", "Lingua Node" ]
+    const startPoints = [ "CEFR Level", "Lingua Cluster" ]
     const CEFRLevels = [ "A1", "A2", "B1", "B2", "C1", "C2" ]
+    const clusterObjects = ["Lingua Node", "Lingua Nodule", "Lingua Practice"]
 
     const CEFRSection =
       <Section >
@@ -24,44 +26,43 @@ const LearnEnglishPage = ( { data }) => {
         <ButtonGrid boxInfo={ CEFRLevels } />
       </Section >
     
-    const linguaNodeSection =
+    const linguaClusterSection =
       <Section>
         <Spacer size="small"/>
-        <h3>By Lingua Node</h3>
+        <h3>By Lingua Cluster</h3>
         <Spacer size="small"/>
         <ul>
-          <li>Adjectives</li>
-          <li>Nouns</li>
-          <li>Questions</li>
-          <li>Tenses</li>
-          <li>Verbs</li>
+          <li>Bake a cake</li>
+          <li>Shop for shoes</li>
+          <li>Replace her heart</li>
+          <li>Treat a fracture</li>
+          <li>Perform brain surgery</li>
         </ul>
       </Section>
 
     return (
-      <Layout title={ title }>
-        <ButtonBar
+        <Layout title={ title }>
+        <Breadcrumbs
           buttons={ startPoints }
         />
         <Spacer size="small" />
-          <ButtonBar
+          <Breadcrumbs
             buttons={ CEFRLevels }
           />
         <SingleColumn>
           { CEFRSection }
-          {linguaNodeSection}
+          {linguaClusterSection}
           <Section direction="row">
           { <ExcerptList posts={ data.allMarkdownRemark.nodes } innerText="See Post" /> }
           </Section>
         </SingleColumn>
       </Layout>
-      
     )
 }
   
 export const data = graphql`
-query get6Posts {
-  allMarkdownRemark(limit: 6) {
+query getLearnEnglishPosts {
+  allMarkdownRemark(limit: 6, filter: {frontmatter: {type: {nin: "profile"}}}) {
     nodes {
       frontmatter {
         title

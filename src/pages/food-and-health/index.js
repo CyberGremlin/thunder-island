@@ -1,13 +1,11 @@
-import * as React from "react"
+import React from "react"
 
 import Layout from "../../components/layout/Layout"
 import SingleColumn from "../../components/layout/SingleColumn"
-
-import ButtonBar from "../../components/clickable/button-bar/ButtonBar"
+import Breadcrumbs from "../../components/clickable/breadcrumbs/Breadcrumbs"
 import Spacer from "../../components/layout/Spacer"
 import Section from "../../components/layout/Section"
 import ButtonGrid from "../../components/clickable/button-grid/ButtonGrid"
-
 
 const FoodAndHealthPage = () => {
   
@@ -15,30 +13,21 @@ const FoodAndHealthPage = () => {
   const categoryChoices = ["Recipes", "Information"]
   const recipeChoices = [ "By Diet", "By Ingredient", "By Course" ]
   const dietChoices = [  "Paleo", "Paleo-ish", "Low Net Carbs", "Low Total Carbs", "Low Calorie", "Carnivore", "All Recipes"]
-  const ingredientChoices = [ "Beef and Lamb", "Chicken and Pork", "Fish and Seafood", "Vegetables", "Dairy, Egg, Nuts and Fruit", "Desserts" ]
+  const ingredientChoices = [ "Beef and Lamb", "Chicken and Pork", "Fish and Seafood", "Vegetables", "Dairy, Egg, Nuts and Fruit" ]
   const courseChoices = [ "Breakfast and Lunch", "Main", "Side", "Snacks and Appetisers", "Desserts" ]
   
   return (
     <Layout title = { title }>
-      <ButtonBar
-        buttons={ categoryChoices }
-      />
-      <ButtonBar
-        buttons={ recipeChoices }
-      />
-        <ButtonBar
-        buttons={ dietChoices }
-      />
-        <ButtonBar
-        buttons={ ingredientChoices }
-      />
-        <ButtonBar
-        buttons={ courseChoices }
-      />
+      <Breadcrumbs buttons={ categoryChoices } />
       <SingleColumn>
         <Section>
           <Spacer size="small"/>
           <ButtonGrid boxInfo={ categoryChoices } />
+          <Spacer size="small"/>
+        </Section>
+        <Section>
+          <Spacer size="small"/>
+          <ButtonGrid boxInfo={ recipeChoices } />
           <Spacer size="small"/>
         </Section>
         <Section>
@@ -63,7 +52,7 @@ const FoodAndHealthPage = () => {
           <Spacer size="small"/>
         </Section>
       </SingleColumn>
-    </Layout>     
+      </Layout>
   )
   }
 

@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: test-repo
   repo: github.com/AlexS2106/thunder-island
   branch: main
 media_folder: static/images
@@ -22,7 +22,7 @@ collections:
           name: "type",
           widget: "select", 
           options: [ "profile", "post" ]
-             }
+        }
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false }
@@ -48,7 +48,7 @@ collections:
           widget: "select", 
           multiple: true,
           options: [ "post", "short", "recipe" ]
-           }
+        }
       - { label: "Slug", name: "slug", widget: "string" }
       - { 
           label: "Main Categories", 
@@ -56,7 +56,7 @@ collections:
           widget: "select",
           options:
            [ { label: "Food and Health", value: "food-and-health" } ]
-          }
+        }
       - { 
           label: "Subcategories", 
           name: "subCategories", 
@@ -66,7 +66,7 @@ collections:
              { label: "Health", value: "health" },
              { label: "Recipes", value: "recipes" } 
              ]
-      }
+        }
       - { 
           label: "Tags", 
           name: "tags", 
@@ -75,6 +75,7 @@ collections:
           required: false, 
           options: 
             [
+              { label: "Information", value: "information" },
               { label: "Exercise", value: "exercise" },
               { label: "Diets", value: "diets" },
               { label: "Living", value: "living" },
@@ -96,8 +97,8 @@ collections:
               { label: "Carnivore", value: "carnivore" },
               { label: "All Recipes", value: "all" }
             ]
-      }
-      - { label: 'Date', name: 'date', widget: "datetime" }
+        }
+      - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false}
       - { label: "Landscape Image", name: "landscapeImage", widget: "image", required: false}
@@ -106,8 +107,10 @@ collections:
       - { label: "Alt", name: "alt", widget: "string", required: false }
       - { label: "Photographer", name: "photographer", widget: "string", required: false}
       - { label: "Comments", name: "true", widget: "boolean" }
+      - { label: "Recipe", name: "recipe", widget: "file", required: false}
+      - { label: "Nutrition", name: "nutrition", widget: "file", required: false}
       - { label: "Excerpt", name: "excerpt", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown", required: false}
 
   - name: 'learn-english'
     label: 'Learn English'
@@ -128,7 +131,7 @@ collections:
         multiple: true, 
         options: 
           ["post", "short", "lesson", "practice"]
-          }
+        }
       - { 
         label: "Related Lessons or Exercises", 
         name: "related", 
@@ -143,7 +146,7 @@ collections:
         widget: "select", 
         options:
           [ { label: "Learn English", value: "learn-english" } ]
-          }
+        }
       - { 
         label: "Subcategories", 
         name: "subCategories", 
@@ -155,7 +158,7 @@ collections:
           { label: "Lingua Nodule", value: "lingua-nodule" }, 
           { label: "Lingua Practice", value: "lingua-practice" }  
         ]
-          }
+        }
       - { 
         label: "CEFR Level", 
         name: "cefr", 
@@ -163,7 +166,7 @@ collections:
         multiple: true, 
         options:
           ["A1", "A2", "B1", "B2", "C1", "C2"]
-           }
+        }
       - { 
         label: "Lingua Cluster", 
         name: "cluster", 
@@ -178,7 +181,7 @@ collections:
           {label: "Future Tense", value: "future-tense" },
           {label: "Questions", value: "questions" }
         ]
-           }
+        }
       - { label: "Author", name: "author", widget: "string", required: false}
       - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false }
       - { label: "Landscape Image", name: "landscapeImage", widget: "image", required: false }
@@ -189,8 +192,143 @@ collections:
       - { label: "Diagram", name: "diagram", widget: "image", required: false}
       - { label: "Animation", name: "animation", widget: "image", required: false}
       - { label: "Animator", name: "animator", widget: "string", required: false}
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
       - { label: "Body", name: "body", widget: "markdown" }  
-        
+
+  - name: 'portfolios'
+    label: 'Portfolios'
+    folder: 'content/portfolios'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { 
+        label: "Type", 
+        name: "type", 
+        widget: "select", 
+        multiple: true, 
+        options: 
+          [ "post", "short", "album" ]
+        }
+      - { label: "Slug", name: "slug", widget: "string" } 
+      - { 
+        label: "Main Categories", 
+        name: "mainCategories", 
+        widget: "select", 
+        options:
+          [ { label: "Portfolios", value: "portfolios"} ]
+        }
+      - { 
+        label: "Subcategories", 
+        name: "subCategories", 
+        widget: "select", 
+        multiple: true, 
+        options: 
+        [
+          { label: "Web Development", value: "web-dev" }, 
+          { label: "Expats in Malta", value: "expats-in-malta" }, 
+          { label: "Writing", value: "writing" },  
+        ]
+        }
+      - { 
+        label: "Tags", 
+        name: "tags", 
+        widget: "select", 
+        multiple: true, 
+        options:
+        [
+          {label: "Family Life", value: "family-life" },
+          {label: "Information", value: "information" },
+          {label: "Reviews", value: "reviews" },
+          {label: "Stories or Poems", value: "stories-and-poems" },
+        ]
+        }
+      - { label: "Author", name: "author", widget: "string", required: false}
+      - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false }
+      - { label: "Landscape Image", name: "landscapeImage", widget: "image", required: false }
+      - { label: "Banner Image", name: "bannerImage", widget: "image", required: false }
+      - { label: "Pin", name: "pin", widget: "image", required: false }
+      - { label: "Alt", name: "alt", widget: "string", required: false }
+      - { label: "Photographer", name: "photographer", widget: "string", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false } 
+
+  - name: 'photography'
+    label: 'Photography'
+    folder: 'content/portfolios/photography'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { 
+        label: "Type", 
+        name: "type", 
+        widget: "select", 
+        multiple: true, 
+        options: 
+          [ "post", "short", "album" ]
+        }
+      - { label: "Slug", name: "slug", widget: "string" } 
+      - { 
+        label: "Main Categories", 
+        name: "mainCategories", 
+        widget: "select", 
+        options:
+          [ { label: "Portfolios", value: "portfolios"} ]
+        }
+      - { 
+        label: "Subcategories", 
+        name: "subCategories", 
+        widget: "select", 
+        multiple: true, 
+        options: 
+        [ { label: "Expats in Malta", value: "expats-in-malta" } ]
+        }
+      - { 
+        label: "Tags", 
+        name: "tags", 
+        widget: "select", 
+        multiple: true, 
+        options:
+        [
+          {label: "Family Life", value: "family-life" },
+          {label: "Information", value: "information" },
+          {label: "Photographs", value: "photographs" },
+          {label: "Reviews", value: "reviews" },
+        ]
+        }
+      - { 
+        label: "Photos", 
+        name: "photos", 
+        widget: "image", 
+        allow_multiple: true, 
+        }
+      - { 
+        label: "Related Posts", 
+        name: "related", 
+        widget: "related", 
+        collection: "portfolios", 
+        required: false
+        }
+      - { label: "Author", name: "author", widget: "string", required: false}
+      - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false }
+      - { label: "Landscape Image", name: "landscapeImage", widget: "image", required: false }
+      - { label: "Banner Image", name: "bannerImage", widget: "image", required: false }
+      - { label: "Pin", name: "pin", widget: "image", required: false }
+      - { label: "Alt", name: "alt", widget: "string", required: false }
+      - { label: "Photographer", name: "photographer", widget: "string", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }        
  
     
   

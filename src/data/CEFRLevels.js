@@ -1,8 +1,8 @@
 export const CEFRLevels = [
-  "CEFR A1",
-  "CEFR A2",
-  "CEFR B1",
-  "CEFR B2",
-  "CEFR C1",
-  "CEFR C2",
+  { name: "CEFR A1" },
+  { name: "CEFR A2" },
+  { name: "CEFR B1" },
+  { name: "CEFR B2" },
+  { name: "CEFR C1" },
+  { name: "CEFR C2" },
 ]

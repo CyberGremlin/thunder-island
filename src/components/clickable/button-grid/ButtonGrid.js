@@ -1,16 +1,29 @@
-import * as React from "react"
+import React from "react"
+
 import {
   btnGrid,
   duo,
   tri
 } from "./ButtonGrid.module.css"
 
-import LinkBtn from "../buttons-links/LinkBtn"
+import Button from "../buttons-links/Button"
 
-const ButtonGrid = ( { boxInfo }) => {
-  const renderedBoxes = boxInfo.map( (skill, index) => {
+import photographyBg from "../../../../static/images/photography-bg.png"
+
+const ButtonGrid = ( { boxInfo } ) => {
+  
+  const renderedBoxes = boxInfo.map( ( obj, index ) => {
+    const bg = {
+      background: `url(${ photographyBg })`,
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat"
+    }
     return (
-     <div key={ index }><LinkBtn innerText={ skill } /></div>
+      <div
+        style={ bg }
+        key={ index }>
+        <Button innerText={ obj } />
+      </div>
    ) 
   } )
 

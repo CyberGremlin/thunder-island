@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 
 import {
   twoCol,
@@ -17,9 +17,14 @@ import Pagination from "../clickable/pagination/Pagination"
 import Spacer from "./Spacer"
 
 
-const DoubleColumn = ( { assignTo, mainData, asideData, lowerData } ) => {
-  
-  const generateMain =
+const DoubleColumn = () => {
+
+    const assignTo = this.props.assignTo
+    const mainData = this.props.mainData
+    const asideData = this.props.asideData
+    const lowerData = this.props.lowerData
+
+ const generateMain =
     ( assignTo === "profile" ) ?
       <Profile person={ mainData } ></Profile>
       :
@@ -48,7 +53,7 @@ const DoubleColumn = ( { assignTo, mainData, asideData, lowerData } ) => {
               <div key={ index }>
                 <PostSmall post={ item } innerText="Read More" />
               </div>
-              <Spacer size="small" />
+              <Spacer key={ `space-${index}` }size="small" />
             </>
     ) )
   
@@ -70,8 +75,8 @@ const DoubleColumn = ( { assignTo, mainData, asideData, lowerData } ) => {
                 <PostMini post={ item } innerText="Read More" />
               </div>
             ) )
- 
-  return (
+    
+    return (
     <>
       <div className={ twoCol }>
         <div className={ left }>
@@ -91,9 +96,9 @@ const DoubleColumn = ( { assignTo, mainData, asideData, lowerData } ) => {
       { generateLowerHeading}
       <div className={ lower }>
         { generateLower }
-      </div>
+    </div>
     </>
   )
-}
+  }
 
 export default DoubleColumn

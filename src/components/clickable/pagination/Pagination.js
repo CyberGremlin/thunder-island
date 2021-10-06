@@ -1,9 +1,11 @@
-import * as React from "react"
+import React from "react"
+
 import {
   pagination 
 } from "./Pagination.module.css"
 
 const Pagination = () => {
+
   return (
     <nav className={ pagination }>
       <ul>

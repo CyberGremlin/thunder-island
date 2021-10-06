@@ -1,14 +1,48 @@
-import * as React from "react"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 
 import {
   navbar,
+  navbarLogin,
   isActive
 } from "./Navbar.module.css"
 
-import { pages } from "../../data/pages"
+import { DispatchContext, StateContext } from "../../context/ContextProvider"
 
 const Navbar = () => {
+
+  const pages = [
+  {
+      link: "/",
+      name: "Home"
+    },
+    {
+      link: "/blog",
+      name: "Blog"
+    },
+    {
+      link: "/food-and-health",
+      name: "Food and Health"
+    },
+    {
+      link: "/learn-english",
+      name: "Learn English"
+    },
+    {
+      link: "/portfolios",
+      name: "Portfolios"
+    },
+     {
+      link: "/about",
+      name: "About"
+    },
+  ]
+  
+  const dispatch = useContext( DispatchContext )
+  const state = useContext( StateContext )
+
+console.log( dispatch )
+  console.log( state )
 
   const generateNavLinks = pages.map( page => {
     return (
@@ -17,11 +51,12 @@ const Navbar = () => {
   })
 
   return (
-    <nav className={ navbar }>
-      <div>
+      <nav className={ navbar }>
+        <div>
         { generateNavLinks }
-      </div>
-    </nav>
+        <button className={ navbarLogin } onClick={ () => { dispatch( { type: "login" } ) } }>{ state.loggedIn ? `${state.user}` : "Login" }</button>
+        </div>
+      </nav>
   )
 
 }

@@ -4,7 +4,7 @@ import Layout from "../../components/layout/Layout"
 import SingleColumn from "../../components/layout/SingleColumn"
 
 import Spacer from "../../components/layout/Spacer"
-import ButtonBar from "../../components/clickable/button-bar/ButtonBar"
+import Breadrumbs from "../../components/clickable/breadcrumbs/Breadcrumbs"
 import ButtonGrid from "../../components/clickable/button-grid/ButtonGrid"
 
 const PortfoliosPage = () => {
@@ -15,12 +15,9 @@ const PortfoliosPage = () => {
     const expatPortfolio = [ "Photographs", "Family Life" ]
     const webDevPortfolio = ["Mint Gallery"]
 
-    return (
+  return (
       <Layout title={ title }>
-        <ButtonBar buttons={ portfolios } />
-        <ButtonBar buttons={ writingPortfolio } />
-        <ButtonBar buttons={ expatPortfolio } />
-        <ButtonBar buttons={ webDevPortfolio } />
+        <Breadrumbs buttons={ portfolios } />
         <SingleColumn>
           <ButtonGrid boxInfo={ portfolios } />
           <Spacer size="small" />
@@ -30,7 +27,8 @@ const PortfoliosPage = () => {
           <Spacer size="small" />
           <ButtonGrid boxInfo={ webDevPortfolio } />
         </SingleColumn>
-      </Layout> 
+      </Layout>
+       
     )
   }
     

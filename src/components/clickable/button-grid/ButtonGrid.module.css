@@ -11,9 +11,6 @@
   grid-template-columns: repeat(3, 1fr);
 }
 .btnGrid > div {
-  background: url("./learn-english-landscape.png");
-  background-size: cover;
-  background-repeat: no-repeat;
   min-height: 150px;
   width: 100%;
   display: flex;

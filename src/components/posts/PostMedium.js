@@ -24,7 +24,7 @@ const PostMedium = ( { post, ...props } ) => {
   
   const subCats = subCategories.map( ( category, index ) => {
     return (
-      <h4 index={ index }>{ category.name }</h4>
+      <h4 key={ index }>{ category.name }</h4>
     )
   } )
   
@@ -38,7 +38,7 @@ const PostMedium = ( { post, ...props } ) => {
     return (
     <article className={ postMedium }>
         <div>
-        { props.showDate && <time datetime={ date }> { date } </time> }
+        { props.showDate && <time dateTime={ date }> { date } </time> }
         <h3>{ title }</h3>
         { mainCats } 
         { props.showSubCategories && subCats }

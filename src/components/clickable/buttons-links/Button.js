@@ -1,4 +1,5 @@
-import * as React from "react";
+import React from "react";
+
 import {
   btn
 } from "./btn.module.css"
@@ -6,10 +7,9 @@ import {
 const Button = ( props ) => {
 
   const innerText = props.innerText
-  const onClickFunc = props.onClickFunc
-  
+
   return (
-    <button className={ btn } onClick={ onClickFunc }>{ innerText}</button>
+    <button className={ btn } onClick={ props.onClick }>{ innerText }</button>
   )
 }
 

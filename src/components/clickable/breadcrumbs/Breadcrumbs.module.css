@@ -1,4 +1,4 @@
-.btnBar {
+.breadcrumbs {
   font-size: 2rem;
   background-color: var(--color-mid); 
   width: 50%;
@@ -8,14 +8,14 @@
   justify-content: space-around;
   margin: auto;
 }
-.btnBar div {
+.breadcrumbs div {
   padding: 1rem;
   justify-content: space-around;
   display: flex;
   flex-direction: row;
   flex: 1;
 }
-.btnBar div button {
+.breadcrumbs div button {
   background-color: inherit;
 }
 .isActive {

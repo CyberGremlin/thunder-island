@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 
 import {
@@ -7,8 +7,8 @@ import {
   credits
 } from "./Footer.module.css"
 
-
 const Footer = () => {
+  
   return (
     <footer className={ footer }>
       <div className={ imageWrapper }>

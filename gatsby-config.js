@@ -12,7 +12,7 @@ module.exports = {
     "gatsby-transformer-remark",
     {
     resolve: `gatsby-plugin-netlify-cms`,
-  },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

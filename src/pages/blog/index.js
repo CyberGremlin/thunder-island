@@ -4,7 +4,6 @@ import { graphql } from "gatsby"
 import Layout from "../../components/layout/Layout"
 import DoubleColumn from "../../components/layout/DoubleColumn"
 
-
 const BlogPage = ( { data } ) => {
 
   const title = "Blog"
