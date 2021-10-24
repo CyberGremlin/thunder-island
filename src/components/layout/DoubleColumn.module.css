@@ -28,18 +28,4 @@
   padding: 1rem;
   background-color: var(--color-accent-light);
 }
-.lower {
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  justify-content: space-evenly;
-  align-items: stretch;
-}
-.lowerHeading {
-   text-shadow: 0px 1px 1px var(--color-accent-dark);
-   letter-spacing: .3rem;
-   padding-left: 5rem;
-}
-.lower div {
-  background-color: var(--color-light);
-}
+

@@ -1,6 +1,7 @@
 ---
 title: About Alex
-type: profile
+type: 
+  - profile
 slug: about-alex
 author: Alex
 portraitImage: ./alex-portrait.jpg

@@ -1,10 +1,13 @@
 ---
 title: Keto Cottage Pie
-type: post
+id: CP2
+type: 
+  - post
+  - recipe
 slug: keto-cottage-pie
 mainCategories: 
-  - Food and Health
-subCategories: 
+  - Food And Health
+subcategories: 
   - Recipes
 tags: 
   - Low Net Carbs 
@@ -20,8 +23,8 @@ pin:
 alt: baked keto cottage pie
 photographer: Alex
 comments: true
+nutrition: 
 excerpt: The British have made an art form out of baking comforting tummy-filling rib-sticking pies. This is one which is made to be lower in net carbs. Beef mince and onion with cauliflower cream cheese topping and a crust of cheddar cheese.
-blurb: true
 ---
 
 ## Recipe ##

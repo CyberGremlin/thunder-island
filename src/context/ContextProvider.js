@@ -1,11 +1,15 @@
 import React, { useReducer, createContext } from "react"
+import { compareSentence, titleSentence } from "../api/sharedFuncs"
 
 export const StateContext = createContext()
 export const DispatchContext = createContext()
 
 const initialState = {
   loggedIn: false,
-  user: "Jon Doe"
+  user: "Jon Doe",
+  views: [],
+  post: "",
+  recipes: []
 }
 
 function reducer ( state, action ) {
@@ -14,6 +18,27 @@ function reducer ( state, action ) {
       return {
         ...state,
         loggedIn: !state.loggedIn
+      }
+    }
+    case "toggle_view": {
+      const newViews = state.views.indexOf( action.payload ) === -1 ? [ ...state.views, action.payload ] : state.views.filter( view => view !== action.payload ? view : null )
+      return {
+        ...state,
+        views: newViews
+      }
+     
+    }
+    case "select_post": {
+      return {
+        ...state,
+        post: compareSentence(action.payload)
+      }
+    }
+    case "select_recipe": {
+      const newRecipes = state.recipes.indexOf( action.payload ) === -1 ? [ ...state.recipes, action.payload ] : state.recipes.filter( recipe => recipe !== action.payload ? recipe : null )
+      return {
+        ...state,
+       recipes: newRecipes
       }
     }
        default:

@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useContext } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import {
@@ -6,12 +6,16 @@ import {
   imageWrapper 
 } from "./PostMini.module.css" 
 
-import LinkBtn from "../clickable/buttons-links/LinkBtn"
+import Button from "../clickable/buttons-links/Button"
+
+import { DispatchContext } from "../../context/ContextProvider"
 
 const PostMini = ( { post, ...props } ) => {
 
+  const dispatch = useContext( DispatchContext )
+
   const { frontmatter } = post
-  const { title, slug, landscapeImage, alt } = frontmatter
+  const { title, type, slug, landscapeImage, alt } = frontmatter
 
   const innerText = props.innerText
 
@@ -21,7 +25,11 @@ const PostMini = ( { post, ...props } ) => {
       <div className={ imageWrapper }>
       <GatsbyImage image={ getImage( landscapeImage ) } alt={ alt } />
       </div>
-      <LinkBtn link={ slug } innerText={ innerText }></LinkBtn>
+      <Button onClick={
+        type.indexOf( "recipe" ) === -1 ?
+          () => { dispatch( { type: "select_post", payload: slug } ) } :
+          () => { dispatch( { type: "select_recipe", payload: slug } ) }
+      } innerText={ innerText }></Button>
     </div>
   )
 }

@@ -1,4 +1,6 @@
-import React from "react"
+import React, { useContext } from "react"
+
+import { navigate } from "gatsby"
 
 import {
   btnGrid,
@@ -10,9 +12,17 @@ import Button from "../buttons-links/Button"
 
 import photographyBg from "../../../../static/images/photography-bg.png"
 
-const ButtonGrid = ( { boxInfo } ) => {
-  
-  const renderedBoxes = boxInfo.map( ( obj, index ) => {
+import { DispatchContext } from "../../../context/ContextProvider"
+
+import { compareSentence } from "../../../api/sharedFuncs"
+import { topLevelPages, secondLevelPages } from "../../../api/pageHeirarchy"
+
+const ButtonGrid = ( { data } ) => {
+
+  const dispatch = useContext( DispatchContext )
+  const nonViews = [ ...topLevelPages, ...secondLevelPages ]
+
+  const renderedBoxes = data.map( ( obj, index ) => {
     const bg = {
       background: `url(${ photographyBg })`,
       backgroundSize: "cover",
@@ -22,12 +32,16 @@ const ButtonGrid = ( { boxInfo } ) => {
       <div
         style={ bg }
         key={ index }>
-        <Button innerText={ obj } />
+        <Button innerText={ obj.name }
+          role="link"
+          onClick={ () => {
+            compareSentence( obj.name ).indexOf( nonViews ) !== -1 ? dispatch( { type: "toggle_view", payload: obj.name } ) : navigate( obj.link )
+          } } />
       </div>
    ) 
   } )
 
-  const fractionStyle = boxInfo.length <= 2 ? duo: tri
+  const fractionStyle = data.length <= 2 ? duo: tri
   
   return (
     <div className={ `${ btnGrid } ${ fractionStyle }` }>

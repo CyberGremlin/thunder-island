@@ -7,11 +7,9 @@ import {
 
 const SingleColumn = ( { children }) => {
   return (
-    <>
-      <main className={ oneCol}>
+      <main className={ oneCol }>
         { children }
       </main>
-    </>
   )
 }
 

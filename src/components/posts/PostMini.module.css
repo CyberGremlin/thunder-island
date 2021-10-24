@@ -12,7 +12,7 @@
 .postMini .imageWrapper {
   padding: 1rem;
 }
-.postMini a {
+.postMini button {
   align-self: flex-end;
   margin: 1rem;
 }

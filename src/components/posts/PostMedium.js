@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useContext } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import {
@@ -8,21 +8,24 @@ import {
   textWrapper,
  } from "./PostMedium.module.css"
 
-import LinkBtn from "../clickable/buttons-links/LinkBtn"
+import Button from "../clickable/buttons-links/Button"
+
+import {  DispatchContext } from "../../context/ContextProvider"
 
 const PostMedium = ( { post, ...props } ) => {
 
+  const dispatch = useContext( DispatchContext )
+
   const innerText = props.innerText ? props.innerText : "See More"
   const { frontmatter } = post
-  const { title, slug, mainCategories, subCategories, date, author, portraitImage, alt, photographer, excerpt } = frontmatter
-
+  const { title, type, slug, mainCategories, subcategories, date, author, portraitImage, alt, photographer, excerpt } = frontmatter
   const mainCats = mainCategories.map( ( category, index ) => {
     return (
       <h4 key={ index } >{ category.name }</h4>
   )
   } )
   
-  const subCats = subCategories.map( ( category, index ) => {
+  const subCats = subcategories.map( ( category, index ) => {
     return (
       <h4 key={ index }>{ category.name }</h4>
     )
@@ -41,7 +44,7 @@ const PostMedium = ( { post, ...props } ) => {
         { props.showDate && <time dateTime={ date }> { date } </time> }
         <h3>{ title }</h3>
         { mainCats } 
-        { props.showSubCategories && subCats }
+        { props.showSubcategories && subCats }
         { props.showAuthor && <address rel="author">{ author }</address> }
         </div>
         <div className={ row }>
@@ -51,7 +54,12 @@ const PostMedium = ( { post, ...props } ) => {
           </div>
         </div>
       <div className={ row }>
-        <LinkBtn to={ slug } innerText={ innerText } />
+          <Button onClick={
+            type.indexOf( "recipe" ) === -1 ?
+              () => { dispatch( { type: "select_post", payload: slug } ) } :
+              () => { dispatch( { type: "select_recipe", payload: slug })}
+            
+            } innerText={ innerText } />
       </div>
       </article>
     )

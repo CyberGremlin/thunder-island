@@ -1,15 +1,18 @@
 ---
-title: Butternut Squash and Carrot Soup
-type: post
-slug: butternut-squash-and-carrot-soup
+title: Butternut Squash And Carrot Soup
+id: BSCS1
+type: 
+  - recipe
+slug: butternut-squash-and-carrot-soup 
 mainCategories: 
-  - Food and Health
-subCategories: 
+  - Food And Health
+subcategories: 
   - Recipes
 tags: 
   - Salads and Soups
   - Paleo-ish
   - Vegetables
+  - Paleo Template
 date: 19/09/21
 author: Alex
 portraitImage: ./butternut-squash-and-carrot-soup-portrait.png
@@ -18,8 +21,9 @@ bannerImage: ./butternut-squash-and-carrot-soup-banner.png
 pin: ./butternut-squash-and-carrot-soup-pin.png
 alt: bowls of butternut squash and carrot soup
 photographer: Alex
+comments: true
+nutrition: 
 excerpt: A thick, luxurious paleo-ish soup of butternut squash, carrot and apple mixed with warm, comforting flavours and eastern healing spices.
-blurb: false
 ---
 
 ## Recipe

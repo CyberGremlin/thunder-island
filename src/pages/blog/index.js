@@ -1,39 +1,42 @@
-import * as React from "react"
+import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../../components/layout/Layout"
 import DoubleColumn from "../../components/layout/DoubleColumn"
+import Pagination from "../../components/clickable/pagination/Pagination"
+import Carousel from "../../components/display/Carousel"
 
 const BlogPage = ( { data } ) => {
 
   const title = "Blog"
-  const assignData = "posts"
+  const assignTo = "posts"
   const mainData = data.allMarkdownRemark.nodes
   const asideData = data.allMarkdownRemark.nodes
-  const lowerData = data.allMarkdownRemark.nodes
+  const carouselData = data.allMarkdownRemark.nodes
 
   return (
     <Layout title={ title }>
       <DoubleColumn
-        assignedData={ assignData }
+        assignTo={ assignTo }
         mainData={ mainData }
         asideData={ asideData }
-        lowerData={ lowerData }
       />
+      <Pagination />
+      <Carousel assignTo={ assignTo } data={ carouselData }/>
     </Layout>
   )
 }
 
 export const data = graphql`
 query getBlogPosts {
-  allMarkdownRemark(limit: 6, filter: {frontmatter: {type: {nin: "profile"}}}) {
+  allMarkdownRemark(limit: 8, filter: {frontmatter: {type: {eq: "post"}}}) {
     nodes {
       frontmatter {
         title
         type
         slug
         mainCategories
-        subCategories
+        subcategories
         date
         author
         portraitImage {

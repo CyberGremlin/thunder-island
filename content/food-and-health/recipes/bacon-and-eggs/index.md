@@ -1,20 +1,22 @@
 ---
 title: Bacon And Eggs
-type: post
+id: BE1
+type: 
+  - recipe
 slug: bacon-and-eggs
-author: Alex
 mainCategories: 
-  - Food and Health
-subCategories: 
+  - Food And Health
+subcategories: 
   - Recipes
 tags: 
   - Breakfast and Lunch
   - Chicken and Pork
-  - Dairy, Eggs, Nuts and Fruit
+  - Dairy Eggs Nuts and Fruit
   - Low Net Carbs
   - Low Total Carbs
-  - Paleo-ish
+  - Paleo Template
 date: 08/09/21
+author: Alex
 portraitImage: ./bacon-and-eggs-portrait.png
 landscapeImage: ./bacon-and-eggs-landscape.png
 bannerImage: ./bacon-and-eggs-banner.png
@@ -22,6 +24,7 @@ pin:
 alt: bacon and eggs
 photographer: Alex
 comments: true
+nutrition: 
 excerpt: Eggs and bacon! Why is there a recipe for eggs and bacon? Because, sometimes, it's easy to overlook the little things. A simple yet filling eggs and bacon recipe for one.
 ---
 

@@ -11,11 +11,10 @@ import Header from "../shared/Header"
 import Spacer from "../layout/Spacer"
 import Footer from "../shared/Footer"
 
-import ContextProvider from "../../context/ContextProvider"
-
 const Layout = ( props ) => {
+
   return (
-    <ContextProvider>
+    <>
       <Navbar />
       <Header />
       <Spacer size="large" />
@@ -26,7 +25,7 @@ const Layout = ( props ) => {
         
       <Spacer size="large" />
       <Footer />
-      </ContextProvider>
+  </>
   ) 
 }
 

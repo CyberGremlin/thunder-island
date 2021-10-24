@@ -1,10 +1,13 @@
+.pagination {
+  padding: 3rem;
+}
 .pagination ul {
   font-size: 2rem;
-  justify-content: flex-end;
+  justify-content: center;
   display: flex;
   flex-direction: row;
   flex: 1;
 }
 .pagination ul li {
-  padding-left: 3rem;
+  padding: 3rem;
 }

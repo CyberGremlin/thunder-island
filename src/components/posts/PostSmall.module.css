@@ -17,7 +17,7 @@
   width: 100%;
   border-radius: 5px;
 }
-.postSmall a {
+.postSmall button {
   align-self: flex-end;
   margin: 1rem;
 }

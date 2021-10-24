@@ -1,12 +1,14 @@
 ---
 title: The Face Dirtier
-type: post
+type: 
+  - post
 slug: the-face-dirtier
 mainCategories: 
   - Portfolios
-subCategories: 
-  - Stories and Poems
+subcategories: 
+  - Writing
 tags:
+  - Stories and Poems
 date: 08/09/21
 author: Alex
 portraitImage: ./the-face-dirtier-portrait.png
@@ -15,9 +17,8 @@ bannerImage: ./the-face-dirtier-banner.png
 pin: 
 alt: muddy children
 photographer:
-comments: true
+comments: false
 excerpt: A poem of a child coming home.
-blurb: false
 ---
 
 # The Face Dirtier

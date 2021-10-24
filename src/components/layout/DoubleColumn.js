@@ -4,25 +4,16 @@ import {
   twoCol,
   left,
   right,
-  lower,
-  asideHeading,
-  lowerHeading
+  asideHeading
 } from "./DoubleColumn.module.css"
 
 import Profile from "../posts/Profile"
-import PostMini from "../posts/PostMini"
 import PostSmall from "../posts/PostSmall"
 import PostMedium from "../posts/PostMedium"
-import Pagination from "../clickable/pagination/Pagination"
 import Spacer from "./Spacer"
 
 
-const DoubleColumn = () => {
-
-    const assignTo = this.props.assignTo
-    const mainData = this.props.mainData
-    const asideData = this.props.asideData
-    const lowerData = this.props.lowerData
+const DoubleColumn = ( { assignTo, mainData, asideData } ) => {
 
  const generateMain =
     ( assignTo === "profile" ) ?
@@ -34,8 +25,6 @@ const DoubleColumn = () => {
                     <Spacer size="small" />
                   </div>
       ) )
-  
-    const multiPage = <Pagination />
   
   const generateAsideHeading = ( assignTo === "profile" ) ?
     <header className={ asideHeading }>
@@ -56,28 +45,8 @@ const DoubleColumn = () => {
               <Spacer key={ `space-${index}` }size="small" />
             </>
     ) )
-  
-  const generateLowerHeading = ( assignTo === "profile" ) ?
-    <header className={ lowerHeading }>
-      <h3>Other Posts</h3>
-      <address rel="author">by { mainData.frontmatter.author } </address>
-      <Spacer size="small" />
-    </header>
-    :
-    <header className={ lowerHeading } >
-      <h3>Other Posts</h3>
-      <Spacer size="small" />
-    </header>
-  
-  const generateLower =
-            lowerData.slice(0, 3).map( ( item, index ) => (
-              <div key={ index }>
-                <PostMini post={ item } innerText="Read More" />
-              </div>
-            ) )
     
     return (
-    <>
       <div className={ twoCol }>
         <div className={ left }>
         <main>
@@ -90,14 +59,7 @@ const DoubleColumn = () => {
             { generateAside }
           </aside>
         </div>
-      { multiPage }
       </div>
-      <Spacer size="medium" />
-      { generateLowerHeading}
-      <div className={ lower }>
-        { generateLower }
-    </div>
-    </>
   )
   }
 

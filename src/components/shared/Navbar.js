@@ -11,7 +11,7 @@ import { DispatchContext, StateContext } from "../../context/ContextProvider"
 
 const Navbar = () => {
 
-  const pages = [
+  const mainMenu = [
   {
       link: "/",
       name: "Home"
@@ -36,15 +36,12 @@ const Navbar = () => {
       link: "/about",
       name: "About"
     },
-  ]
+]
   
   const dispatch = useContext( DispatchContext )
   const state = useContext( StateContext )
 
-console.log( dispatch )
-  console.log( state )
-
-  const generateNavLinks = pages.map( page => {
+  const generateNavLinks = mainMenu.map( page => {
     return (
       <Link key={ page.link } to={ page.link } activeClassName={isActive}>{ page.name }</Link>
     )

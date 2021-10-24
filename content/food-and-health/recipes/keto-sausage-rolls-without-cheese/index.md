@@ -1,10 +1,13 @@
 ---
 title: Keto Sausage Rolls Without Cheese
-type: post
+id: SR1
+type: 
+  - post
+  - recipe
 slug: keto-sausage-rolls-without-cheese
 mainCategories: 
-  - Food and Health
-subCategories: 
+  - Food And Health
+subcategories: 
   - Recipes
 tags: 
   - Low Net Carbs 
@@ -16,11 +19,11 @@ portraitImage: ./keto-sausage-rolls-without-cheese-portrait.png
 landscapeImage: ./keto-sausage-rolls-without-cheese-landscape.png
 bannerImage: ./keto-sausage-rolls-without-cheese-banner.png
 pin: ./keto-sausage-rolls-without-cheese-pin.png
-alt: cooked keto sausage rolls
+alt: keto sausage rolls
 photographer: Alex
 comments: true
+nutrition: 
 excerpt: Comfort food for a low carb diet and good for paleo-ish as well. Juicy sausages, crumbly pastry, so deliciously filling and so incredibly tasty.
-blurb: true
 ---
 
 ## Recipe

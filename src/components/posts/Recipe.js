@@ -43,7 +43,7 @@ const Recipe = ( { recipe, props } ) => {
             </div>
           <div className={ row }>
             <div className={ imageWrapper }>
-              <StaticImage src="../../images/bacon-and-eggs-portrait.png" alt={ alt } />
+              <StaticImage src="../../../content/food-and-health/recipes/butternut-squash-and-carrot-soup/butternut-squash-and-carrot-soup-landscape.png" alt={ alt } />
               { props.hasPhotographer && photographer ? <cite>photo by { photographer }</cite> : null}
             </div>
             

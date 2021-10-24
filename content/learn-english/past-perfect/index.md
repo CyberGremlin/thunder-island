@@ -1,11 +1,13 @@
 ---
 title: Past Perfect
-type: lesson
+id: PP1-L
+type: 
+  - lesson
 related: 
 slug: past-perfect
 mainCategories: 
   - Learn English
-subCategories: 
+subcategories: 
   - Lingua Node
 cefr: 
   - B1

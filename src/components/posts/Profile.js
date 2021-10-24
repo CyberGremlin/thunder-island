@@ -6,9 +6,7 @@ import {
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Profile = ( { person } ) => {
-
-  console.log(person)
-
+  
   const { frontmatter, html } = person
   const { title, portraitImage, alt } = frontmatter
   

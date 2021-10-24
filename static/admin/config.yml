@@ -5,6 +5,7 @@ backend:
 media_folder: static/images
 public_folder: /images
 collections:
+
   - name: 'profile'
     label: 'Profiles'
     folder: 'content/about'
@@ -18,21 +19,21 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { 
-          label: "Type",
-          name: "type",
+          label: "Type", 
+          name: "type", 
           widget: "select", 
-          options: [ "profile", "post" ]
+          options: [ "profile" ]
         }
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false }
-      - { label: "Alt", name: "alt", widget: "string" }
+      - { label: "Alt", name: "alt", widget: "string", required: false }
       - { label: "Photographer", name: "photographer", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" } 
 
-  - name: 'food-and-health'
-    label: 'Food and Health'
-    folder: 'content/food-and-health'
+  - name: 'health'
+    label: 'Health'
+    folder: 'content/food-and-health/health'
     create: true
     slug: 'index'
     media_folder: ''
@@ -45,6 +46,62 @@ collections:
       - { 
           label: "Type", 
           name: "type", 
+          widget: "select",
+          multiple: true, 
+          options: [ "post", "short" ]
+        }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { 
+          label: "Main Categories", 
+          name: "mainCategories", 
+          widget: "select", 
+          options: [ "Food and Health" ],
+          default: [ "Food And Health" ]
+        }
+      - {
+          label: "Subcategories",
+          name: "subcategories",
+          widget: "select",
+          options: [ "Health" ],
+          default: [ "Health" ]
+        }
+      - { 
+          label: "Tags", 
+          name: "tags", 
+          widget: "select", 
+          multiple: true, 
+          required: false, 
+          options: 
+            ["Information", "Exercise", "Diets", "Living" ]
+        }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false}
+      - { label: "Landscape Image", name: "landscapeImage", widget: "image", required: false}
+      - { label: "Banner Image", name: "bannerImage", widget: "image", required: false }
+      - { label: "Pin", name: "pin", widget: "image", required: false }
+      - { label: "Alt", name: "alt", widget: "string", required: false }
+      - { label: "Photographer", name: "photographer", widget: "string", required: false}
+      - { label: "Comments", name: "comments", widget: "boolean", default: true }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: 'recipes'
+    label: 'Recipes'
+    folder: 'content/food-and-health/recipes'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Id", name: "id", widget: "string" }
+      - { 
+          label: "Type", 
+          name: "type", 
           widget: "select", 
           multiple: true,
           options: [ "post", "short", "recipe" ]
@@ -52,20 +109,17 @@ collections:
       - { label: "Slug", name: "slug", widget: "string" }
       - { 
           label: "Main Categories", 
-          name: "mainCategories",
-          widget: "select",
-          options:
-           [ { label: "Food and Health", value: "food-and-health" } ]
-        }
-      - { 
-          label: "Subcategories", 
-          name: "subCategories", 
+          name: "mainCategories", 
           widget: "select", 
-          options:
-           [ 
-             { label: "Health", value: "health" },
-             { label: "Recipes", value: "recipes" } 
-             ]
+          options: [ "Food and Health" ],
+          default: [ "Food And Health" ]
+        }
+      - {
+          label: "Subcategories",
+          name: "subcategories",
+          widget: "select",
+          options: [ "Recipes" ],
+          default: [ "Recipes" ]
         }
       - { 
           label: "Tags", 
@@ -75,10 +129,6 @@ collections:
           required: false, 
           options: 
             [
-              { label: "Information", value: "information" },
-              { label: "Exercise", value: "exercise" },
-              { label: "Diets", value: "diets" },
-              { label: "Living", value: "living" },
               { label: "Breakfast and Lunch", value: "breakfast-and-lunch" },
               { label: "Main Dish", value: "main" },
               { label: "Side Dish", value: "side" },
@@ -98,19 +148,19 @@ collections:
               { label: "All Recipes", value: "all" }
             ]
         }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false}
-      - { label: "Landscape Image", name: "landscapeImage", widget: "image", required: false}
+      - { label: "Date", name: "date", widget: "datetime", required: false }
+      - { label: "Author", name: "author", widget: "string", required: false }
+      - { label: "Portrait Image", name: "portraitImage", widget: "image" }
+      - { label: "Landscape Image", name: "landscapeImage", widget: "image" }
       - { label: "Banner Image", name: "bannerImage", widget: "image", required: false }
-      - { label: "Pin", name: "pin", widget: "image", required: false }
-      - { label: "Alt", name: "alt", widget: "string", required: false }
+      - { label: "Pin", name: "pin", widget: "image" }
+      - { label: "Alt", name: "alt", widget: "string" }
       - { label: "Photographer", name: "photographer", widget: "string", required: false}
-      - { label: "Comments", name: "true", widget: "boolean" }
-      - { label: "Recipe", name: "recipe", widget: "file", required: false}
-      - { label: "Nutrition", name: "nutrition", widget: "file", required: false}
+      - { label: "Comments", name: "comments", widget: "boolean", default: true }
+      - { label: "Recipe", name: "recipe", widget: "markdown" }
+      - { label: "Nutrition", name: "nutrition", widget: "file", required: false }
       - { label: "Excerpt", name: "excerpt", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown", required: false}
+      - { label: "Body", name: "body", widget: "markdown", required: false }
 
   - name: 'learn-english'
     label: 'Learn English'
@@ -124,6 +174,7 @@ collections:
       preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Id", name: "id", widget: "string" }
       - { 
         label: "Type", 
         name: "type", 
@@ -141,31 +192,25 @@ collections:
         }
       - { label: "Slug", name: "slug", widget: "string" } 
       - { 
-        label: "Main Categories", 
-        name: "mainCategories", 
-        widget: "select", 
-        options:
-          [ { label: "Learn English", value: "learn-english" } ]
+          label: "Main Category", 
+          name: "mainCategories", 
+          widget: "select", 
+          options: [ "Learn English" ],
+          default: [ "Learn English" ]
         }
       - { 
         label: "Subcategories", 
-        name: "subCategories", 
+        name: "subcategories", 
         widget: "select", 
         multiple: true, 
-        options: 
-        [
-          { label: "Lingua Node", value: "lingua-node" }, 
-          { label: "Lingua Nodule", value: "lingua-nodule" }, 
-          { label: "Lingua Practice", value: "lingua-practice" }  
-        ]
+        options: ["Lingua Node", "Lingua Nodule", "Lingua Practice" ]
         }
       - { 
         label: "CEFR Level", 
         name: "cefr", 
         widget: "select", 
         multiple: true, 
-        options:
-          ["A1", "A2", "B1", "B2", "C1", "C2"]
+        options: ["A1", "A2", "B1", "B2", "C1", "C2"]
         }
       - { 
         label: "Lingua Cluster", 
@@ -192,6 +237,7 @@ collections:
       - { label: "Diagram", name: "diagram", widget: "image", required: false}
       - { label: "Animation", name: "animation", widget: "image", required: false}
       - { label: "Animator", name: "animator", widget: "string", required: false}
+      - { label: "Comments", name: "comments", widget: "boolean", default: false }
       - { label: "Excerpt", name: "excerpt", widget: "text" }
       - { label: "Body", name: "body", widget: "markdown" }  
 
@@ -217,15 +263,15 @@ collections:
         }
       - { label: "Slug", name: "slug", widget: "string" } 
       - { 
-        label: "Main Categories", 
-        name: "mainCategories", 
-        widget: "select", 
-        options:
-          [ { label: "Portfolios", value: "portfolios"} ]
+          label: "Main Category", 
+          name: "mainCategories", 
+          widget: "select", 
+          options: [ "Portfolios" ],
+          default: [ "Portfolios" ]
         }
       - { 
         label: "Subcategories", 
-        name: "subCategories", 
+        name: "subcategories", 
         widget: "select", 
         multiple: true, 
         options: 
@@ -243,82 +289,25 @@ collections:
         options:
         [
           {label: "Family Life", value: "family-life" },
-          {label: "Information", value: "information" },
           {label: "Reviews", value: "reviews" },
           {label: "Stories or Poems", value: "stories-and-poems" },
         ]
         }
-      - { label: "Author", name: "author", widget: "string", required: false}
-      - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false }
-      - { label: "Landscape Image", name: "landscapeImage", widget: "image", required: false }
-      - { label: "Banner Image", name: "bannerImage", widget: "image", required: false }
-      - { label: "Pin", name: "pin", widget: "image", required: false }
-      - { label: "Alt", name: "alt", widget: "string", required: false }
-      - { label: "Photographer", name: "photographer", widget: "string", required: false }
-      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
-      - { label: "Body", name: "body", widget: "markdown", required: false } 
-
-  - name: 'photography'
-    label: 'Photography'
-    folder: 'content/portfolios/photography'
-    create: true
-    slug: 'index'
-    media_folder: ''
-    public_folder: ''
-    path: '{{title}}/index'
-    editor:
-      preview: true
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
       - { 
-        label: "Type", 
-        name: "type", 
+        label: "Album", 
+        name: "album", 
         widget: "select", 
         multiple: true, 
-        options: 
-          [ "post", "short", "album" ]
-        }
-      - { label: "Slug", name: "slug", widget: "string" } 
-      - { 
-        label: "Main Categories", 
-        name: "mainCategories", 
-        widget: "select", 
-        options:
-          [ { label: "Portfolios", value: "portfolios"} ]
-        }
-      - { 
-        label: "Subcategories", 
-        name: "subCategories", 
-        widget: "select", 
-        multiple: true, 
-        options: 
-        [ { label: "Expats in Malta", value: "expats-in-malta" } ]
-        }
-      - { 
-        label: "Tags", 
-        name: "tags", 
-        widget: "select", 
-        multiple: true, 
+        required: false,
         options:
         [
-          {label: "Family Life", value: "family-life" },
-          {label: "Information", value: "information" },
-          {label: "Photographs", value: "photographs" },
-          {label: "Reviews", value: "reviews" },
+          {label: "Eerie Malta", value: "eerie-malta" },
+          {label: "Blue Malta", value: "blue-malta" },
+          {label: "Wildlife in Malta", value: "wildlife-in-malta" },
+          {label: "Walking in Malta", value: "walking-in-malta" },
+          {label: "Playing in Malta", value: "playing-in-malta" },
+          {label: "The Beach in Malta", value: "beach-in-malta" },
         ]
-        }
-      - { 
-        label: "Photos", 
-        name: "photos", 
-        widget: "image", 
-        allow_multiple: true, 
-        }
-      - { 
-        label: "Related Posts", 
-        name: "related", 
-        widget: "related", 
-        collection: "portfolios", 
-        required: false
         }
       - { label: "Author", name: "author", widget: "string", required: false}
       - { label: "Portrait Image", name: "portraitImage", widget: "image", required: false }
@@ -327,8 +316,6 @@ collections:
       - { label: "Pin", name: "pin", widget: "image", required: false }
       - { label: "Alt", name: "alt", widget: "string", required: false }
       - { label: "Photographer", name: "photographer", widget: "string", required: false }
+      - { label: "Comments", name: "comments", widget: "boolean", default: false }
       - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
-      - { label: "Body", name: "body", widget: "markdown", required: false }        
- 
-    
-  
+      - { label: "Body", name: "body", widget: "markdown", required: false } 
