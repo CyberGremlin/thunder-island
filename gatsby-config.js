@@ -5,6 +5,9 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://thunder-island.netlify.app/",
     title: "Thunder Island",
+    author: "Alex",
+    stack: "JAMstack",
+    stackTech: ["Excel", "Markdown", "React", "Gatsby", "Netlify CMS"]
   },
   plugins: [
     "gatsby-plugin-gatsby-cloud",

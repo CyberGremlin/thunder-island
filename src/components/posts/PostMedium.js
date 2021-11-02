@@ -17,7 +17,7 @@ const PostMedium = ( { post, ...props } ) => {
   const dispatch = useContext( DispatchContext )
 
   const innerText = props.innerText ? props.innerText : "See More"
-  const { frontmatter } = post
+  const { id, frontmatter } = post
   const { title, type, slug, mainCategories, subcategories, date, author, portraitImage, alt, photographer, excerpt } = frontmatter
   const mainCats = mainCategories.map( ( category, index ) => {
     return (
@@ -37,7 +37,6 @@ const PostMedium = ( { post, ...props } ) => {
             { props.hasPhotographer && photographer !== "" ? <cite>photo by { photographer }</cite> : null }
           </div>
     : null
-  
     return (
     <article className={ postMedium }>
         <div>
@@ -56,9 +55,8 @@ const PostMedium = ( { post, ...props } ) => {
       <div className={ row }>
           <Button onClick={
             type.indexOf( "recipe" ) === -1 ?
-              () => { dispatch( { type: "select_post", payload: slug } ) } :
-              () => { dispatch( { type: "select_recipe", payload: slug })}
-            
+              () => { dispatch( { type: "select_post", payload: id } ) } :
+              () => { dispatch( { type: "select_recipe", payload: id })}
             } innerText={ innerText } />
       </div>
       </article>

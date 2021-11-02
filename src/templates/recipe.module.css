@@ -1,0 +1,80 @@
+.recipe {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.recipe h2,
+.recipe h3,
+.recipe h4,
+.recipe h5,
+.recipe time,
+.recipe address {
+  text-shadow: 0px 1px 1px var(--color-accent-dark);
+  letter-spacing: .3rem;
+  padding: .5rem;
+}
+.recipe h3,
+.recipe h4,
+.recipe h5 {
+  padding-left: 5%;
+}
+.recipe h2,
+.recipe h6,
+.recipe time,
+.recipe address {
+  text-align: center;
+}
+.recipe h4,
+.recipe h5,
+.recipe time,
+.recipe address {
+  padding-top: 0rem;
+}
+.recipe cite {
+  text-align: end;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+.excerptWrapper {
+  padding: 5rem;
+}
+.excerptWrapper p {
+  padding-left: .5rem;
+  border-left: 1px solid var(--color-accent-dark);
+}
+.recipeCard {
+  padding: 1rem;
+  justify-content: space-evenly;
+  border: 1px solid var(--color-accent-light);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  box-shadow: 0px 1px 10px 1px var(--color-mid);
+  margin: 5rem;
+}
+.recipeCardHeading {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-50px); 
+  margin: auto;
+}
+.recipeCardBody ul {
+  font-size: 1.8rem;
+  color: var(--color-dark);
+  letter-spacing: .05rem;
+  line-height: 3.5rem;
+  padding-bottom: 2rem;
+  padding-left: 5rem;
+}
+.recipeCardBody > ul {
+  font-size: 2.2rem;
+  list-style-type: disc;
+  padding-left: 11rem;
+}
+.recipeCardBody ul li ul {
+  list-style-type: disc
+}

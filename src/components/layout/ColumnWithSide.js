@@ -5,39 +5,23 @@ import {
   left,
   right,
   asideHeading
-} from "./DoubleColumn.module.css"
+} from "./ColumnWithSide.module.css"
 
-import Profile from "../posts/Profile"
 import PostSmall from "../posts/PostSmall"
 import PostMedium from "../posts/PostMedium"
 import Spacer from "./Spacer"
 
 
-const DoubleColumn = ( { assignTo, mainData, asideData } ) => {
+const ColumnWithSide = ( { mainData, sideData } ) => {
 
- const generateMain =
-    ( assignTo === "profile" ) ?
-      <Profile person={ mainData } ></Profile>
-      :
-      mainData.map( ( item, index ) => (
+ const generateMain = mainData.map( ( item, index ) => (
                   <div key={ index } >
                     <PostMedium showDate showAuthor hasPhotographer showSubCategories post={ item } innerText="Continue..." />
                     <Spacer size="small" />
                   </div>
-      ) )
+ ) )
   
-  const generateAsideHeading = ( assignTo === "profile" ) ?
-    <header className={ asideHeading }>
-      <h3>Popular Posts</h3>
-      <address rel="author">by { mainData.frontmatter.author } </address>
-    </header>
-    :
-    <header className={ asideHeading }>
-      <h3>Popular Posts</h3>
-    </header>
-  
-  const generateAside = 
-    asideData.map( ( item, index ) => (
+  const generateSide = sideData.map( ( item, index ) => (
             <>
               <div key={ index }>
                 <PostSmall post={ item } innerText="Read More" />
@@ -49,18 +33,20 @@ const DoubleColumn = ( { assignTo, mainData, asideData } ) => {
     return (
       <div className={ twoCol }>
         <div className={ left }>
-        <main>
-          { generateMain }
+          <main>
+            { generateMain }
           </main>  
         </div>
         <div className={ right }>
           <aside>
-            { generateAsideHeading }
-            { generateAside }
+            <header className={ asideHeading }>
+              <h3>Popular Posts</h3>
+            </header>
+            { generateSide }
           </aside>
         </div>
       </div>
   )
   }
 
-export default DoubleColumn
+export default ColumnWithSide

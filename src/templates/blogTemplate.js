@@ -1,12 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../../components/layout/Layout"
-import ColumnWithSide from "../../components/layout/ColumnWithSide"
-import Pagination from "../../components/clickable/pagination/Pagination"
-import Carousel from "../../components/display/Carousel"
+import Layout from "../components/layout/Layout"
+import ColumnWithSide from "../components/layout/ColumnWithSide"
+import Pagination from "../components/clickable/pagination/Pagination"
+import Carousel from "../components/display/Carousel"
 
-const BlogPage = ( { data } ) => {
+const Blog = ( { data } ) => {
 
   const title = "Blog"
   const mainData = data.allMarkdownRemark.nodes
@@ -25,8 +25,10 @@ const BlogPage = ( { data } ) => {
   )
 }
 
+export default Blog
+
 export const data = graphql`
-query getBlogPosts {
+query getPosts {
   allMarkdownRemark(limit: 8, filter: {frontmatter: {type: {eq: "post"}}}) {
     nodes {
       id
@@ -55,5 +57,3 @@ query getBlogPosts {
   }
 }
 `
-
-export default BlogPage

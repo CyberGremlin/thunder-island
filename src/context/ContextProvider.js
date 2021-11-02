@@ -1,5 +1,4 @@
 import React, { useReducer, createContext } from "react"
-import { compareSentence, titleSentence } from "../api/sharedFuncs"
 
 export const StateContext = createContext()
 export const DispatchContext = createContext()
@@ -31,7 +30,7 @@ function reducer ( state, action ) {
     case "select_post": {
       return {
         ...state,
-        post: compareSentence(action.payload)
+        post: action.payload
       }
     }
     case "select_recipe": {

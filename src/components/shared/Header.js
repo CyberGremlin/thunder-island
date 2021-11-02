@@ -8,7 +8,8 @@ const Header = () => {
   
   return (
     <header className={ header }>
-      <StaticImage src="./thunder-island-logo-header-small.png" alt="thunder island logo" />
+      <StaticImage src="./thunder-island-logo-header-small.png" alt="thunder island logo" aria-hidden="true"/>
+      <h1>Thunder Island</h1>
     </header>
   )
 }

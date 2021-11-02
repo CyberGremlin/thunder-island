@@ -11,3 +11,6 @@
   width: 50%;
   margin: auto;
 }
+.header h1 {
+  display: none;
+}

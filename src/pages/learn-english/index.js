@@ -108,6 +108,7 @@ export const data = graphql`
 query getLearnEnglishPosts {
   allMarkdownRemark(limit: 6, filter: {frontmatter: {type: {nin: "profile"}}}) {
     nodes {
+      id
       frontmatter {
         title
         type

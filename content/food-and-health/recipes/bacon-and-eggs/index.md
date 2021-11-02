@@ -1,6 +1,6 @@
 ---
 title: Bacon And Eggs
-id: BE1
+xid: R-BE1
 type: 
   - recipe
 slug: bacon-and-eggs
@@ -48,7 +48,7 @@ excerpt: Eggs and bacon! Why is there a recipe for eggs and bacon? Because, some
     - Set a timer for 5 minutes.
   - **Step 3**
     - Place the bacon onto a microwaveable plate and microwave to desired 'doneness'. 
-    I prefer 3½ mins at 900 watts, this gives me nicely cooked bacon with crispy edges. My husband prefers 3 mins at 900 watts because he doesn't like the crispy edges. The choice is yours.
+    (I prefer 3½ mins at 900 watts, this gives me nicely cooked bacon with crispy edges. My husband prefers 3 mins at 900 watts because he doesn't like the crispy edges. The choice is yours.)
   - **Step 4**
     - When the timer pings on the eggs. Check them. They should be nicely cooked, with soft liquid yolks. If not, leave them another minute and recheck.
   - **Step 5**

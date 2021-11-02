@@ -1,6 +1,6 @@
 ---
 title: Keto Cottage Pie
-id: CP2
+xid: R-CP2
 type: 
   - post
   - recipe

@@ -1,6 +1,6 @@
 ---
 title: Butternut Squash And Carrot Soup
-id: BSCS1
+xid: R-BSCS1
 type: 
   - recipe
 slug: butternut-squash-and-carrot-soup 

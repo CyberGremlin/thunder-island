@@ -1,24 +1,56 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import {
+  twoCol,
+  left,
+  right,
+  asideHeading
+} from "./index.module.css"
+
 import Layout from "../../components/layout/Layout"
-import DoubleColumn from "../../components/layout/DoubleColumn"
+import PostSmall from "../../components/posts/PostSmall"
+import Profile from "../../components/posts/Profile"
+import Spacer from "../../components/layout/Spacer"
 
 const AboutPage = ( { data } ) => {
 
   const { authors, posts } = data
   const { frontmatter, html } = authors
   const title = "About"
-  const assignTo = "profile"
   const mainData = {
     frontmatter,
     html
   }
   const asideData = posts.nodes
 
+    const generateAside = asideData.map( ( item, index ) => (
+            <>
+              <div key={ index }>
+                <PostSmall post={ item } innerText="Read More" />
+              </div>
+              <Spacer key={ `space-${index}` }size="small" />
+            </>
+    ) )
+
   return (
     <Layout title={title}>
-      <DoubleColumn assignTo={ assignTo } mainData={ mainData } asideData={ asideData } />
+      <div className={ twoCol }>
+        <div className={ left }>
+        <main>
+          <Profile person={ mainData } ></Profile>
+          </main>  
+        </div>
+        <div className={ right }>
+          <aside>
+            <header className={ asideHeading }>
+      <h3>Popular Posts</h3>
+      <address rel="author">by { mainData.frontmatter.author } </address>
+    </header>
+            { generateAside }
+          </aside>
+        </div>
+      </div> 
     </Layout>
   )
 }

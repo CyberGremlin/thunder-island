@@ -1,4 +1,6 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+
 import { StaticImage } from "gatsby-plugin-image"
 
 import {
@@ -8,7 +10,18 @@ import {
 } from "./Footer.module.css"
 
 const Footer = () => {
-  
+  const data = useStaticQuery(graphql`
+  query siteMeta {
+  site {
+    siteMetadata {
+      title
+      author
+      stack
+      stackTech
+    }
+  }
+}
+  `)
   return (
     <footer className={ footer }>
       <div className={ imageWrapper }>
@@ -16,13 +29,16 @@ const Footer = () => {
       </div>
       <div className={ credits }>
         <div>
-          <p>Made with Gatsby and Wordpress</p>
+          <p>JAMstack</p>
+          <p>{ data.site.siteMetadata.stackTech.map( ( tech, index ) => index === data.site.siteMetadata.stackTech.length -1 ? `with ${tech}` : `${tech}, `) }</p>
         </div>
         <div>
-          <p>Logo Design by Claire Murray</p>
+          <p>Logo Design</p>
+          <p>by Claire Murray</p>
         </div>
         <div>
-          <p>@Copyright Alex 2021</p>
+          <p>@Copyright { data.site.siteMetadata.title } { new Date().getFullYear() }</p>
+          <p>Design and Content by { data.site.siteMetadata.author } </p>
         </div>
       </div>
     </footer>

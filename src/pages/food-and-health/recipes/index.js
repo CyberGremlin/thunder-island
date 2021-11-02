@@ -70,8 +70,10 @@ export const data = graphql`
 query getRecipePosts {
   allMarkdownRemark(filter: {frontmatter: {type: {in: "recipe"} }}, limit: 8) {
    nodes {
+      id
       frontmatter {
         title
+        xid
         type
         slug
         mainCategories

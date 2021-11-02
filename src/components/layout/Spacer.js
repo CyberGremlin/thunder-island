@@ -16,7 +16,6 @@ const Spacer = ( { size } ) => {
   return (
     <div className={ space }></div>
   )
-
 }
 
 export default Spacer

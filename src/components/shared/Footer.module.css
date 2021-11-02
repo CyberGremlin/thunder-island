@@ -22,6 +22,11 @@
   justify-content: space-around;
   align-items: center;
 }
+.footer .credits div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .footer .credits p {
   font-size: 1.4rem;
 }

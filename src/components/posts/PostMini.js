@@ -14,7 +14,7 @@ const PostMini = ( { post, ...props } ) => {
 
   const dispatch = useContext( DispatchContext )
 
-  const { frontmatter } = post
+  const { id, frontmatter } = post
   const { title, type, slug, landscapeImage, alt } = frontmatter
 
   const innerText = props.innerText
@@ -27,8 +27,8 @@ const PostMini = ( { post, ...props } ) => {
       </div>
       <Button onClick={
         type.indexOf( "recipe" ) === -1 ?
-          () => { dispatch( { type: "select_post", payload: slug } ) } :
-          () => { dispatch( { type: "select_recipe", payload: slug } ) }
+          () => { dispatch( { type: "select_post", payload: id } ) } :
+          () => { dispatch( { type: "select_recipe", payload: id } ) }
       } innerText={ innerText }></Button>
     </div>
   )

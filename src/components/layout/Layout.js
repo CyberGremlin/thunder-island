@@ -25,7 +25,7 @@ const Layout = ( props ) => {
         
       <Spacer size="large" />
       <Footer />
-  </>
+    </>
   ) 
 }
 

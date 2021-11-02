@@ -68,6 +68,7 @@ export const data = graphql`
 query getFrontPagePosts {
   allMarkdownRemark(limit: 6, filter: {frontmatter: {type: {nin: "profile"}}}) {
     nodes {
+      id
       frontmatter {
         title
         type
