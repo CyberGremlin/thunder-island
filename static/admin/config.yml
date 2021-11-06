@@ -1,5 +1,5 @@
 backend:
-  name: test-repo
+  name: git-gateway
   repo: github.com/AlexS2106/thunder-island
   branch: main
 media_folder: static/images
