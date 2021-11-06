@@ -5,7 +5,7 @@ import Layout from "../../../components/layout/Layout"
 import SingleColumn from "../../../components/layout/SingleColumn"
 import Spacer from "../../../components/layout/Spacer"
 import Section from "../../../components/layout/Section"
-import Breadcrumbs from "../../../components/clickable/breadcrumbs/BreadCrumbs"
+import Breadcrumbs from "../../../components/clickable/breadcrumbs/Breadcrumbs"
 import PostMedium from "../../../components/posts/PostMedium"
 import Pagination from "../../../components/clickable/pagination/Pagination"
 
